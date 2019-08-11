@@ -35,9 +35,9 @@ When you are done with your script, you can export all import statements via:
 
 Which libraries are available?
 - We aim to add all popular Python Data Science libraries which should account for >99% of your daily imports. For example, `pd from pandas, np from numpy, sns from seaborn, plt from matplotlib.pyplot, or OneHotEncoder from sklearn` and many more. In addition, there are also helper modules like `os, re, tqdm, or Path from pathlib`.
-- You can check all imports and add new ones in the [pyforest imports](src/pyforest/imports.py).
+- You can check all imports and add new ones in the [pyforest imports](src/pyforest/_imports.py).
 
-> In order to gather all the most important names, we need your help. Please open a pull request and add the [imports](src/pyforest/imports.py) that we are still missing.
+> In order to gather all the most important names, we need your help. Please open a pull request and add the [imports](src/pyforest/_imports.py) that we are still missing.
 
 
 ## Installation
@@ -58,7 +58,7 @@ Please note, that this will also add pyforest to your IPython default startup se
 
 - "Why can't I just use the typical IPython import?" If you were to add all the libraries that pyforest includes, your startup time might take more than 30s.
 
-- "I don't have and don't need tensorflow. What will happen when I use pyforest?" Tensorflow is included in pyforest but pyforest does not install any dependencies. You need to install your libraries separately from pyforest. Afterwards, you can access the libraries via pyforest if they are included in the [pyforest imports](src/pyforest/imports.py).
+- "I don't have and don't need tensorflow. What will happen when I use pyforest?" Tensorflow is included in pyforest but pyforest does not install any dependencies. You need to install your libraries separately from pyforest. Afterwards, you can access the libraries via pyforest if they are included in the [pyforest imports](src/pyforest/_imports.py).
 
 - "Will the pyforest variables interfere with my own local variables?" Please make sure that you import pyforest at the beginning of your script. Then you will always be safe. You can use your variables like you would without pyforest. The worst thing that can happen is that you overwrite a pyforest placeholder and thus cannot use the placeholder any more (duh).
 
@@ -66,7 +66,7 @@ Please note, that this will also add pyforest to your IPython default startup se
 
 
 ## Contributing
-In order to gather all the most important names, we need your help. Please open a pull request and add the imports that we are still missing to the [pyforest imports](src/pyforest/imports.py). You can also find the guidelines in the [pyforest imports file](src/pyforest/imports.py)
+In order to gather all the most important names, we need your help. Please open a pull request and add the imports that we are still missing to the [pyforest imports](src/pyforest/_imports.py). You can also find the guidelines in the [pyforest imports file](src/pyforest/_imports.py)
 
 
 ## About
