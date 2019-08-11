@@ -64,6 +64,10 @@ Please note, that this will also add pyforest to your IPython default startup se
 
 - "What about auto-completion on lazily imported modules?" It works :) As soon as you start the auto-completion, pyforest will import the module and return the available symbols to your auto-completer.
 
+- "How to (temporarily) deactivate the auto_import in IPython and Jupyter?" Go to the directory `~/.ipython/profile_default/startup` and adjust or delete the `pyforest_autoimport.py` file. You will find further instructions in the file.
+
+- "How to (re)activate the pyforest auto_import?" Execute the following Python command in Jupyter, IPython or Python: `from pyforest.auto_import import setup; setup()`. Please note that the auto_import only works for Jupyter and IPython.
+
 
 ## Contributing
 In order to gather all the most important names, we need your help. Please open a pull request and add the imports that we are still missing to the [pyforest imports](src/pyforest/_imports.py). You can also find the guidelines in the [pyforest imports file](src/pyforest/_imports.py)
