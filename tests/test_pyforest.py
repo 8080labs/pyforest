@@ -1,23 +1,43 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from pyforest.__modules__ import *
+
+
+def test_imports():
+    from pyforest import os, pd, Path, active_imports
+
+    os.name
+    assert "import os" in active_imports()
+
+    df = pd.DataFrame()
+    assert "import pandas as pd" in active_imports()
+
+    # Path('.')
+    # assert "from pathlib import Path" in active_imports()
+
+    # TODO: add example for 'from x import y as z'
+
+
+def test_lazy_imports():
+    from pyforest import lazy_imports
+
+    assert "import os" in lazy_imports()
+
+
+def test_complementary_import():
+    from pyforest import pd, active_imports
+
+    df = pd.DataFrame()
+    assert "import pandas-profiling" in active_imports()
+
+
+def test_autocomplete():
+    from pyforest import pd
+
+    assert "DataFrame" in dir(pd)
 
 
 def test_auto_import():
-    pd = importable("pandas", "pd")
-    assert "autoimported module of <module 'pandas' from" in f"{pd}"
+    from pyforest.auto_import import setup as setup_auto_import
 
-
-def test_auto_import_function_call():
-    df = pd.DataFrame(
-        [["a", "b"], ["c", "d"]], index=["row 1", "row 2"], columns=["col 1", "col 2"]
-    )
-    df_from_json = pd.read_json(
-        '{"col 1":{"row 1":"a","row 2":"c"},"col 2":{"row 1":"b","row 2":"d"}}'
-    )
-    assert df.equals(df_from_json)
-
-
-def test_setup_auto_import():
     assert setup_auto_import()
