@@ -12,8 +12,8 @@ def test_imports():
     df = pd.DataFrame()
     assert "import pandas as pd" in active_imports()
 
-    # Path('.')
-    # assert "from pathlib import Path" in active_imports()
+    Path(".")
+    assert "from pathlib import Path" in active_imports()
 
     # TODO: add example for 'from x import y as z'
 

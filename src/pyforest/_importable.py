@@ -47,6 +47,11 @@ class Importable(object):
         exec(f"{self.__imported_name__} = self.__maybe_import__()")
         return eval(f"{self.__imported_name__}.{attribute}")
 
+    # called for callable objects, e.g. from pathlib import Path; Path(".")
+    def __call__(self, *args, **kwargs):
+        exec(f"{self.__imported_name__} = self.__maybe_import__()")
+        return eval(self.__imported_name__)(*args, **kwargs)
+
     def __repr__(self, *args, **kwargs):
         # it is important that __repr__ does not trigger an import if the module is not yet imported
         # e.g. if the user calls locals(), this triggers __repr__ for each object
