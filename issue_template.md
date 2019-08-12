@@ -2,9 +2,8 @@
 
 * Operating System:
 * Python Version: `$ python --version`
-* How did you install Qgrid: (`pip`, `conda`, or `other (please explain)`)
-* Python packages: `$ pip freeze` or `$ conda list` (please include qgrid, notebook, and jupyterlab versions)
-* Jupyter lab packages (if applicable): `$ jupyter labextension list`
+* How did you install pyforest: (`pip`, `conda`, or `other (please explain)`)
+* Python packages: `$ pip freeze` or `$ conda list` (please include pyforest)
 
 ### Description of Issue
 

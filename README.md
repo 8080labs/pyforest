@@ -92,6 +92,10 @@ Please note, that this will also add pyforest to your IPython default startup se
 In order to gather all the most important names, we need your help. Please open a pull request and add the imports that we are still missing to the [pyforest imports](src/pyforest/_imports.py). You can also find the guidelines in the [pyforest imports file](src/pyforest/_imports.py)
 
 
+## Issues
+Please use our [issue template](issue_template.md) in order to submit issues.
+
+
 ## About
 pyforest is developed by Florian, Tobias and Guido from 8080 Labs. Our goal is to improve the productivity of Python Data Scientists. Other projects that we are working on are [edaviz.com](https://edaviz.com) and [bamboolib.com](https://bamboolib.com)
 
@@ -104,7 +108,3 @@ If you
 - are just interested in mingling with like-minded fellows
 
 then, you are invited to [join our slack](https://join.slack.com/t/fasterpyds/shared_invite/enQtNzExNDMxNzQ3NTU0LTNhMjI3MTM5ZGZlN2Y4NWIwOWUxZDg4ODE1MzkyNTc1NDhmNjg5ZGZhYmI1ZjBkNzgzMTI3MDcxNWMzZDA0NGQ).
-
-
-## Issues
-Please use our [issue template](issue_template.md) in order to submit issues.
