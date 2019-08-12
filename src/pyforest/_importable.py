@@ -96,9 +96,9 @@ class LazyObject(Importable):
             self.__import_statement__ = f"from {module_name} import {object_name}"
 
 
-def _import_statements(symbol_table, was_imported=True):
+def _import_statements(symbol_dict, was_imported=True):
     statements = []
-    for _, symbol in symbol_table.items():
+    for _, symbol in symbol_dict.items():
         if isinstance(symbol, Importable) and (symbol.__was_imported__ == was_imported):
             print(symbol.__import_statement__)
             statements.append(symbol.__import_statement__)
