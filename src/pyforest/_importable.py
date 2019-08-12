@@ -31,25 +31,24 @@ class Importable(object):
     # if the module(s) were imported before, this method returns immediately
     def __maybe_import__(self):
         self.__maybe_import_complementary_importables__()
-        exec(self.__import_statement__)
+        exec(self.__import_statement__, globals())
         self.__was_imported__ = (
             True
         )  # Attention: if the import fails, this line will not be reached
-        return locals()[self.__imported_name__]
 
     # among others, called during auto-completion of IPython/Jupyter
     def __dir__(self):
-        exec(f"{self.__imported_name__} = self.__maybe_import__()")
+        self.__maybe_import__()
         return eval(f"dir({self.__imported_name__})")
 
     # called for undefined attribute and returns the attribute of the imported module
     def __getattr__(self, attribute):
-        exec(f"{self.__imported_name__} = self.__maybe_import__()")
+        self.__maybe_import__()
         return eval(f"{self.__imported_name__}.{attribute}")
 
     # called for callable objects, e.g. from pathlib import Path; Path(".")
     def __call__(self, *args, **kwargs):
-        exec(f"{self.__imported_name__} = self.__maybe_import__()")
+        self.__maybe_import__()
         return eval(self.__imported_name__)(*args, **kwargs)
 
     def __repr__(self, *args, **kwargs):
@@ -62,7 +61,7 @@ class Importable(object):
         if self.__was_imported__:
             # next line only adds imported_name into the local scope but does not trigger a new import
             # because the importable was already imported via another trigger
-            exec(f"{self.__imported_name__} = self.__maybe_import__()")
+            self.__maybe_import__()
             return f"active pyforest.{self.__importable_type__} of {eval(self.__imported_name__)}"
         else:
             return f"lazy pyforest.{self.__importable_type__} for '{self.__import_statement__}'"
