@@ -68,6 +68,12 @@ Please note, that this will also add pyforest to your IPython default startup se
 
 - "How to (re)activate the pyforest auto_import?" Execute the following Python command in Jupyter, IPython or Python: `from pyforest.auto_import import setup; setup()`. Please note that the auto_import only works for Jupyter and IPython.
 
+- "Why is pandas_profiling also imported in the demo?" pyforest supports complementary, optional imports. For example, `pandas_profiling` patches the `pd.DataFrame` with the convenience function `df.profile_report`. Therefore, pyforest also imports `pandas_profiling` if you have it installed. If you don't have `pandas_profiling` installed, the optional import will be skipped.
+
+- "I don't want to copy complementary import statements to the top of my file." Please note, that the complementary imports will always appear at the bottom of the import_statements list. So, you can just copy all statements above. Alternatively, you can deactivate complementary imports.
+
+- "How to deactivate complementary imports?" You can uncomment the statements `*.on_import()` at the bottom of the [pyforest imports](src/pyforest/_imports.py) file.
+
 
 ## Contributing
 In order to gather all the most important names, we need your help. Please open a pull request and add the imports that we are still missing to the [pyforest imports](src/pyforest/_imports.py). You can also find the guidelines in the [pyforest imports file](src/pyforest/_imports.py)

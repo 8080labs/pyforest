@@ -60,9 +60,6 @@ alt = LazyModule("altair")
 
 pydot = LazyModule("pydot")
 
-pandas_profiling = LazyModule("pandas_profiling")
-eda = LazyModule("edaviz", "eda")
-
 
 ### Machine Learning
 sklearn = LazyModule("sklearn")
@@ -96,7 +93,15 @@ tqdm = LazyModule("tqdm")
 #######################################
 ### Complementary, optional imports ###
 #######################################
+# Why is this needed? Some libraries patch existing libraries
+# Please note: these imports are only executed if you already have the library installed
+# If you want to deactivate specific complementary imports, do the following:
+# - uncomment the lines which contain `.on_import` and the library you want to deactivate
+
+pandas_profiling = LazyModule("pandas_profiling")
 pd.on_import(pandas_profiling)  # adds df.profile_report attribute to pd.DataFrame
+
+eda = LazyModule("edaviz", "eda")
 pd.on_import(eda)  # adds GUI to pd.DataFrame when IPython frontend can display it
 
 
