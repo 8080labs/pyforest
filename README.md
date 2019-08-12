@@ -82,7 +82,7 @@ Please note, that this will also add pyforest to your IPython default startup se
     - Please note, that the complementary imports will always appear at the bottom of the import_statements list. So, you can just copy all statements above. Alternatively, you can deactivate complementary imports.
 
 - __"How to deactivate complementary imports?"__
-    - You can uncomment the statements `*.on_import()` at the bottom of the [pyforest imports](src/pyforest/_imports.py) file.
+    - You can uncomment the statements `*.__on_import__()` at the bottom of the [pyforest imports](src/pyforest/_imports.py) file.
 
 - __"Why is the project called pyforest?"__
     - In which ecosystem do pandas live?

@@ -17,7 +17,7 @@ class Importable(object):
         # self.__imported_name__ = None
         # self.__import_statement__ = None
 
-    def on_import(self, importable):
+    def __on_import__(self, importable):
         self.__complementary_importables__.append(importable)
 
     def __maybe_import_complementary_importables__(self):
