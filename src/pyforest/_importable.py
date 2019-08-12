@@ -32,9 +32,8 @@ class Importable(object):
     def __maybe_import__(self):
         self.__maybe_import_complementary_importables__()
         exec(self.__import_statement__, globals())
-        self.__was_imported__ = (
-            True
-        )  # Attention: if the import fails, this line will not be reached
+        # Attention: if the import fails, the next line will not be reached
+        self.__was_imported__ = True
 
     # among others, called during auto-completion of IPython/Jupyter
     def __dir__(self):
