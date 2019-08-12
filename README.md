@@ -51,40 +51,40 @@ Please note, that this will also add pyforest to your IPython default startup se
 
 ## Frequently Asked Questions
 
-- "I need to always explicitly write down the libraries I used at the top of my scripts."
+- __"I need to always explicitly write down the libraries I used at the top of my scripts."__
     - Of course, you can export the import statements for all used libraries with `active_imports()`.
 
-- "Doesn't this slow down my Jupyter or Python startup process?"
+- __"Doesn't this slow down my Jupyter or Python startup process?"__
     - No, because the libraries will only be imported when you actually use them. Until you use them, the variables like `pd` are only pyforest placeholders.
 
-- "Why can't I just use the typical IPython import?"
+- __"Why can't I just use the typical IPython import?"__
     - If you were to add all the libraries that pyforest includes, your startup time might take more than 30s.
 
-- "I don't have and don't need tensorflow. What will happen when I use pyforest?"
+- __"I don't have and don't need tensorflow. What will happen when I use pyforest?"__
     - Tensorflow is included in pyforest but pyforest does not install any dependencies. You need to install your libraries separately from pyforest. Afterwards, you can access the libraries via pyforest if they are included in the [pyforest imports](src/pyforest/_imports.py).
 
-- "Will the pyforest variables interfere with my own local variables?"
+- __"Will the pyforest variables interfere with my own local variables?"__
     - Please make sure that you import pyforest at the beginning of your script. Then you will always be safe. You can use your variables like you would without pyforest. The worst thing that can happen is that you overwrite a pyforest placeholder and thus cannot use the placeholder any more (duh).
 
-- "What about auto-completion on lazily imported modules?"
+- __"What about auto-completion on lazily imported modules?"__
     - It works :) As soon as you start the auto-completion, pyforest will import the module and return the available symbols to your auto-completer.
 
-- "How to (temporarily) deactivate the auto_import in IPython and Jupyter?"
+- __"How to (temporarily) deactivate the auto_import in IPython and Jupyter?"__
     - Go to the directory `~/.ipython/profile_default/startup` and adjust or delete the `pyforest_autoimport.py` file. You will find further instructions in the file.
 
-- "How to (re)activate the pyforest auto_import?"
+- __"How to (re)activate the pyforest auto_import?"__
     - Execute the following Python command in Jupyter, IPython or Python: `from pyforest.auto_import import setup; setup()`. Please note that the auto_import only works for Jupyter and IPython.
 
-- "Why is pandas_profiling also imported in the demo?"
+- __"Why is pandas_profiling also imported in the demo?"__
     - pyforest supports complementary, optional imports. For example, `pandas_profiling` patches the `pd.DataFrame` with the convenience function `df.profile_report`. Therefore, pyforest also imports `pandas_profiling` if you have it installed. If you don't have `pandas_profiling` installed, the optional import will be skipped.
 
-- "I don't want to copy complementary import statements to the top of my file."
+- __"I don't want to copy complementary import statements to the top of my file."__
     - Please note, that the complementary imports will always appear at the bottom of the import_statements list. So, you can just copy all statements above. Alternatively, you can deactivate complementary imports.
 
-- "How to deactivate complementary imports?"
+- __"How to deactivate complementary imports?"__
     - You can uncomment the statements `*.on_import()` at the bottom of the [pyforest imports](src/pyforest/_imports.py) file.
 
-- "Why is the project called pyforest?"
+- __"Why is the project called pyforest?"__
     - In which ecosystem do pandas live?
 
 
