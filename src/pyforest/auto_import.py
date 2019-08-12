@@ -16,7 +16,8 @@ def _create_or_reset_startup_file():
 
 def _write_into_startup_file():
     with STARTUP_FILE.open("w") as file:
-        file.write(f"""
+        file.write(
+            f"""
 # HOW TO DEACTIVATE AUTO-IMPORT:
 # if you dont want to auto-import pyforest, you have two options:
 # 0) if you only want to disable the auto-import temporarily and activate it later,
@@ -28,16 +29,21 @@ try:
     pass
 except:
     pass
-""")
+"""
+        )
 
 
 def setup():
     if not IPYTHON_STARTUP_FOLDER.exists():
-        print(f"Error: Could not find the default IPython startup folder at {IPYTHON_STARTUP_FOLDER}")
+        print(
+            f"Error: Could not find the default IPython startup folder at {IPYTHON_STARTUP_FOLDER}"
+        )
         return False
 
     _create_or_reset_startup_file()
     _write_into_startup_file()
 
-    print("Success: pyforest is now available in Jupyter Notebook, Jupyter Lab and IPython because it was added to the IPython auto import")
+    print(
+        "Success: pyforest is now available in Jupyter Notebook, Jupyter Lab and IPython because it was added to the IPython auto import"
+    )
     return True

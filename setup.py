@@ -10,7 +10,7 @@ from setuptools import setup
 from src.pyforest.auto_import import setup as setup_auto_import
 
 try:
-    require('setuptools>=38.3')
+    require("setuptools>=38.3")
 except VersionConflict:
     print("Error: version of setuptools is too old (<38.3)!")
     sys.exit(1)

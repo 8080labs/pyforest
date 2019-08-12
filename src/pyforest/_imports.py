@@ -100,16 +100,12 @@ pd.on_import(pandas_profiling)  # adds df.profile_report attribute to pd.DataFra
 pd.on_import(eda)  # adds GUI to pd.DataFrame when IPython frontend can display it
 
 
-
-
-
-
-
 ##################################################
 ### dont make adjustments below this line ########
 ##################################################
 def lazy_imports():
     return _import_statements(globals(), was_imported=False)
+
 
 def active_imports():
     return _import_statements(globals(), was_imported=True)

@@ -17,10 +17,8 @@ class Importable(object):
         # self.__imported_name__ = None
         # self.__import_statement__ = None
 
-
     def on_import(self, importable):
         self.__complementary_importables__.append(importable)
-
 
     def __maybe_import_complementary_importables__(self):
         for importable in self.__complementary_importables__:
@@ -29,27 +27,25 @@ class Importable(object):
             except:
                 pass  # silently fails if the complementary importable is not available. This is because complementary importables are considered optional. Please note that direct imports of Importables will fail explicitly.
 
-
     # Python will only import the module(s) if they are missing
     # if the module(s) were imported before, this method returns immediately
     def __maybe_import__(self):
         self.__maybe_import_complementary_importables__()
         exec(self.__import_statement__)
-        self.__was_imported__ = True  # Attention: if the import fails, this line will not be reached
+        self.__was_imported__ = (
+            True
+        )  # Attention: if the import fails, this line will not be reached
         return locals()[self.__imported_name__]
-
 
     # among others, called during auto-completion of IPython/Jupyter
     def __dir__(self):
         exec(f"{self.__imported_name__} = self.__maybe_import__()")
         return eval(f"dir({self.__imported_name__})")
 
-
     # called for undefined attribute and returns the attribute of the imported module
     def __getattr__(self, attribute):
         exec(f"{self.__imported_name__} = self.__maybe_import__()")
         return eval(f"{self.__imported_name__}.{attribute}")
-
 
     def __repr__(self, *args, **kwargs):
         # it is important that __repr__ does not trigger an import if the module is not yet imported
@@ -72,7 +68,7 @@ class LazyModule(Importable):
         super().__init__()
 
         self.__importable_type__ = "LazyModule"
-        if(alias):
+        if alias:
             self.__imported_name__ = alias
             self.__import_statement__ = f"import {module_name} as {alias}"
         else:
@@ -85,9 +81,11 @@ class LazyObject(Importable):
         super().__init__()
 
         self.__importable_type__ = "LazyObject"
-        if(alias):
+        if alias:
             self.__imported_name__ = alias
-            self.__import_statement__ = f"from {module_name} import {object_name} as {alias}"
+            self.__import_statement__ = (
+                f"from {module_name} import {object_name} as {alias}"
+            )
         else:
             self.__imported_name__ = object_name
             self.__import_statement__ = f"from {module_name} import {object_name}"
