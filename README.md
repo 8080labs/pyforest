@@ -34,7 +34,7 @@ When you are done with your script, you can export all import statements via:
 
 
 Which libraries are available?
-- We aim to add all popular Python Data Science libraries which should account for >99% of your daily imports. For example, `pd` from `pandas`, `np` from `numpy`, `sns` from `seaborn`, `plt` from `matplotlib.pyplot`, or `OneHotEncoder` from `sklearn` and many more. In addition, there are also helper modules like `os, re, tqdm, or Path` from `pathlib`.
+- We aim to add all popular Python Data Science libraries which should account for >99% of your daily imports. For example, `pd` from `pandas`, `np` from `numpy`, `sns` from `seaborn`, `plt` from `matplotlib.pyplot`, or `OneHotEncoder` from `sklearn` and many more. In addition, there are also helper modules like `os`, `re`, `tqdm`, or `Path` from `pathlib`.
 - You can check all imports and add new ones in the [pyforest imports](src/pyforest/_imports.py).
 
 > In order to gather all the most important names, we need your help. Please open a pull request and add the [imports](src/pyforest/_imports.py) that we are still missing.
