@@ -14,12 +14,11 @@ pyforest lazy-imports all popular Python Data Science libraries so that they are
 
 
 ## Demo in Jupyter Notebook
-<!-- ![demo](https://bamboolib.com/pyforest/pyforest_demo_in_jupyter.png) -->
-![demo](https://bamboolib.com/pyforest/pyforest_demo_in_jupyter.gif)
+![demo](examples/assets/pyforest_demo_in_jupyter.gif)
 
 
 ## Demo in Python Shell
-![demo](https://bamboolib.com/pyforest/pyforest_demo_in_python_shell.png)
+![demo](examples/assets/pyforest_demo_in_python_shell.png)
 
 
 ## Using pyforest
