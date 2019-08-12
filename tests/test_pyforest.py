@@ -21,14 +21,15 @@ def test_imports():
 def test_lazy_imports():
     from pyforest import lazy_imports
 
-    assert "import os" in lazy_imports()
+    # if the module e.g. "re" has been imported in test_imports() this test will fail
+    assert "import re" in lazy_imports()
 
 
 def test_complementary_import():
     from pyforest import pd, active_imports
 
     df = pd.DataFrame()
-    assert "import pandas-profiling" in active_imports()
+    assert "import pandas_profiling" in active_imports()
 
 
 def test_autocomplete():
