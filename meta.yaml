@@ -1,0 +1,48 @@
+{% set version = "0.1.0" %}
+
+package:
+  name: "pyforest"
+  version: 
+
+source:
+  #git_url: https://github.com/8080labs/pyforest.git
+  #fn: ""
+  path: ./
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+
+requirements:
+  build:
+    - setuptools
+    - pytest
+    - pytest-cov
+    - pytest-runner
+  host:
+    - pip
+    - python
+  run:
+    - setuptools
+    - python
+  requires:
+    - setuptools
+    - pytest
+    - pytest-cov
+    - pytest-runner
+
+test:
+  imports:
+    - setuptools
+    - pytest
+    - pytest_cov
+  requires:
+    - setuptools
+    - pytest
+    - pytest-cov
+    - pytest-runner
+
+about:
+  home: https://github.com/8080labs/pyforest
+  license: MIT
+  summary: Lazy-import of all popular Python Data Science libraries. Stop writing the same imports over and over again.
