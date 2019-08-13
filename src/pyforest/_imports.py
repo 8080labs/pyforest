@@ -19,7 +19,7 @@ from ._importable import LazyImport, _import_statements
 # Also, it is ambiguous with e.g. IPython.display.HTML.
 # A potential resolution might be 'import dash_html_components as dhc'
 
-# 2) General imports e.g. 'from sklearn.preprocessing import *' are not allowed
+# 2) General imports e.g. 'from sklearn.preprocessing import *' are not allowed/possible
 # because we want to make sure that there is no accidental masking of imported names
 
 # 3) If you disagree with the conventions, you can always adjust your local pyforest

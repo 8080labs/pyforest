@@ -102,6 +102,7 @@ class LazyImport(Importable):
 
         self.__importable_type__ = "LazyImport"
         self.__import_statement__ = import_statement
+        # the next line does not work for general imports, e.g. "from pandas import *"
         self.__imported_name__ = import_statement.strip().split()[-1]
 
 
