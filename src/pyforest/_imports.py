@@ -1,14 +1,8 @@
-from ._importable import LazyModule, LazyObject, _import_statements
+from ._importable import LazyImport, _import_statements
 
 
 # ADD YOUR IMPORTS BELOW
 # TODO: in this file you can add your most important modules and objects
-# EXAMPLES:
-# 'import os' becomes 'os = LazyModule("os")'
-# 'import numpy as np' becomes 'np = LazyModule("numpy", "np")'
-# 'from openpyxl import load_workbook' becomes 'LazyObject("openpyxl", "load_workbook")'
-# 'from dask import dataframe as dd' becomes 'LazyObject("dask", "dataframe", "dd")'
-
 
 # If you are missing an import, please contribute via creating a pull request.
 # If you contribute, we can quickly collect the 80% most frequent imports
@@ -32,62 +26,62 @@ from ._importable import LazyModule, LazyObject, _import_statements
 
 
 ### Data Wrangling
-pd = LazyModule("pandas", "pd")
+pd = LazyImport("import pandas as pd")
 
-np = LazyModule("numpy", "np")
+np = LazyImport("import numpy as np")
 
-dd = LazyObject("dask", "dataframe", "dd")
-SparkContext = LazyObject("pyspark", "SparkContext")
+dd = LazyImport("from dask import dataframe as dd")
+SparkContext = LazyImport("from pyspark import SparkContext")
 
-load_workbook = LazyObject("openpyxl", "load_workbook")
+load_workbook = LazyImport("from openpyxl import load_workbook")
 
 
 ### Data Visualization and Plotting
-mpl = LazyModule("matplotlib", "mpl")
-plt = LazyModule("matplotlib.pyplot", "plt")
+mpl = LazyImport("import matplotlib as mpl")
+plt = LazyImport("import matplotlib.pyplot as plt")
 
-sns = LazyModule("seaborn", "sns")
+sns = LazyImport("import seaborn as sns")
 
-py = LazyModule("plotly", "py")
-go = LazyModule("plotly.graph_objs", "go")
-px = LazyModule("plotly.express", "px")
+py = LazyImport("import plotly as py")
+go = LazyImport("import plotly.graph_objs as go")
+px = LazyImport("import plotly.express as px")
 
-dash = LazyModule("dash")
+dash = LazyImport("import dash")
 
-bokeh = LazyModule("bokeh")
+bokeh = LazyImport("import bokeh")
 
-alt = LazyModule("altair")
+alt = LazyImport("import altair")
 
-pydot = LazyModule("pydot")
+pydot = LazyImport("import pydot")
 
 
 ### Machine Learning
-sklearn = LazyModule("sklearn")
-OneHotEncoder = LazyObject("sklearn.preprocessing", "OneHotEncoder")
+sklearn = LazyImport("import sklearn")
+OneHotEncoder = LazyImport("from sklearn.preprocessing import OneHotEncoder")
 # TODO: add all the other most important sklearn objects
 
 # Deep Learning
-tf = LazyModule("tensorflow")
-keras = LazyModule("keras")
+tf = LazyImport("import tensorflow")
+keras = LazyImport("import keras")
 
 # NLP
-nltk = LazyModule("nltk")
-gensim = LazyModule("gensim")
-spacy = LazyModule("spacy")
+nltk = LazyImport("import nltk")
+gensim = LazyImport("import gensim")
+spacy = LazyImport("import spacy")
 
 
 ### Helper
-sys = LazyModule("sys")
-os = LazyModule("os")
-re = LazyModule("re")
-glob = LazyModule("glob")
-Path = LazyObject("pathlib", "Path")
+sys = LazyImport("import sys")
+os = LazyImport("import os")
+re = LazyImport("import re")
+glob = LazyImport("import glob")
+Path = LazyImport("from pathlib import Path")
 
-pickle = LazyModule("pickle")
+pickle = LazyImport("import pickle")
 
-dt = LazyModule("datetime", "dt")
+dt = LazyImport("import datetime as dt")
 
-tqdm = LazyModule("tqdm")
+tqdm = LazyImport("import tqdm")
 
 
 #######################################
@@ -98,10 +92,10 @@ tqdm = LazyModule("tqdm")
 # If you want to deactivate specific complementary imports, do the following:
 # - uncomment the lines which contain `.__on_import__` and the library you want to deactivate
 
-pandas_profiling = LazyModule("pandas_profiling")
+pandas_profiling = LazyImport("import pandas_profiling")
 pd.__on_import__(pandas_profiling)  # adds df.profile_report attribute to pd.DataFrame
 
-eda = LazyModule("edaviz", "eda")
+eda = LazyImport("import edaviz as eda")
 pd.__on_import__(eda)  # adds GUI to pd.DataFrame when IPython frontend can display it
 
 

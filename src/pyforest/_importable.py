@@ -66,6 +66,7 @@ class Importable(object):
             return f"lazy pyforest.{self.__importable_type__} for '{self.__import_statement__}'"
 
 
+# deprecated
 class LazyModule(Importable):
     def __init__(self, module_name, alias=None):
         super().__init__()
@@ -79,6 +80,7 @@ class LazyModule(Importable):
             self.__import_statement__ = f"import {module_name}"
 
 
+# deprecated
 class LazyObject(Importable):
     def __init__(self, module_name, object_name, alias=None):
         super().__init__()
@@ -92,6 +94,15 @@ class LazyObject(Importable):
         else:
             self.__imported_name__ = object_name
             self.__import_statement__ = f"from {module_name} import {object_name}"
+
+
+class LazyImport(Importable):
+    def __init__(self, import_statement):
+        super().__init__()
+
+        self.__importable_type__ = "LazyImport"
+        self.__import_statement__ = import_statement
+        self.__imported_name__ = import_statement.strip().split()[-1]
 
 
 def _import_statements(symbol_dict, was_imported=True):
