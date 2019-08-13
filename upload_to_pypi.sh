@@ -1,5 +1,9 @@
 #!/bin/bash
 
-# make sure to remove or clean up dist/ folder
+if [ -d ./dist ]
+then
+    echo rm -rf dist/*
+fi
+
 python3 setup.py sdist
 twine upload dist/*
