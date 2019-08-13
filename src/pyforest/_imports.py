@@ -50,7 +50,7 @@ dash = LazyImport("import dash")
 
 bokeh = LazyImport("import bokeh")
 
-alt = LazyImport("import altair")
+alt = LazyImport("import altair as alt")
 
 pydot = LazyImport("import pydot")
 
@@ -61,7 +61,7 @@ OneHotEncoder = LazyImport("from sklearn.preprocessing import OneHotEncoder")
 # TODO: add all the other most important sklearn objects
 
 # Deep Learning
-tf = LazyImport("import tensorflow")
+tf = LazyImport("import tensorflow as tf")
 keras = LazyImport("import keras")
 
 # NLP
