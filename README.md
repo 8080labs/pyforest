@@ -29,8 +29,8 @@ pyforest lazy-imports all popular Python Data Science libraries with a single li
 And if you use Jupyter or IPython, you can even skip this line because pyforest adds itself to the autostart.
 
 When you are done with your script, you can export all import statements via:
-`active_imports()`
 
+`active_imports()`
 
 Which libraries are available?
 - We aim to add all popular Python Data Science libraries which should account for >99% of your daily imports. For example, `pd` from `pandas`, `np` from `numpy`, `sns` from `seaborn`, `plt` from `matplotlib.pyplot`, or `OneHotEncoder` from `sklearn` and many more. In addition, there are also helper modules like `os`, `re`, `tqdm`, or `Path` from `pathlib`.
