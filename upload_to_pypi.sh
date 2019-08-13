@@ -2,7 +2,7 @@
 
 if [ -d ./dist ]
 then
-    echo rm -rf dist/*
+    rm -rf dist/*
 fi
 
 python3 setup.py sdist
