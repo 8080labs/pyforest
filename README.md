@@ -8,6 +8,7 @@ pyforest lazy-imports all popular Python Data Science libraries so that they are
 - [Installation](#installation)
 - [FAQs](#frequently-asked-questions)
 - [Contributing](#contributing)
+- [Using pyforest as Package Developer](#using-pyforest-as-package-developer)
 - [About](#about)
 - [Join our community and grow further](#join-our-community-and-grow-further)
 
@@ -24,13 +25,17 @@ pyforest lazy-imports all popular Python Data Science libraries so that they are
 ## Using pyforest
 pyforest lazy-imports all popular Python Data Science libraries with a single line of code:
 
-`from pyforest import *`
+```python
+from pyforest import *
+```
 
 And if you use Jupyter or IPython, you can even skip this line because pyforest adds itself to the autostart.
 
 When you are done with your script, you can export all import statements via:
 
-`active_imports()`
+```python
+active_imports()
+```
 
 Which libraries are available?
 - We aim to add all popular Python Data Science libraries which should account for >99% of your daily imports. For example, `pandas` as `pd`, `numpy` as `np`, `seaborn` as `sns`, `matplotlib.pyplot` as `plt`, or `OneHotEncoder` from `sklearn` and many more. In addition, there are also helper modules like `os`, `re`, `tqdm`, or `Path` from `pathlib`.
@@ -90,6 +95,23 @@ Please note, that this will also add pyforest to your IPython default startup se
 
 ## Contributing
 In order to gather all the most important names, we need your help. Please open a pull request and add the imports that we are still missing to the [pyforest imports](src/pyforest/_imports.py). You can also find the guidelines in the [pyforest imports file](src/pyforest/_imports.py)
+
+
+## Using pyforest as Package Developer
+pyforest helps you to minimize the (initial) import time of your package which improves the user experience. If you want your package imports to become lazy, rewrite your imports as follows:
+
+Replace
+
+```python
+import pandas as pd
+```
+
+with
+
+```python
+from pyforest import LazyImport
+pd = LazyImport("import pandas as pd")
+```
 
 
 ## About
