@@ -45,6 +45,9 @@ Which libraries are available?
 
 
 ## Installation
+
+> You need Python 3.6 or above because we love f-strings.
+
 From the terminal, enter:
 
 `pip install pyforest`
