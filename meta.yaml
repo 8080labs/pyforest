@@ -2,7 +2,7 @@
 
 package:
   name: "pyforest"
-  version: 
+  version: "{{ version }}"
 
 source:
   #git_url: https://github.com/8080labs/pyforest.git
@@ -23,24 +23,16 @@ requirements:
     - pip
     - python
   run:
-    - setuptools
     - python
-  requires:
-    - setuptools
-    - pytest
-    - pytest-cov
-    - pytest-runner
 
 test:
-  imports:
-    - setuptools
-    - pytest
-    - pytest_cov
   requires:
-    - setuptools
     - pytest
     - pytest-cov
     - pytest-runner
+  imports:
+    - pytest
+    - pytest_cov
 
 about:
   home: https://github.com/8080labs/pyforest
