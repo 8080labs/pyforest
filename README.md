@@ -39,7 +39,8 @@ active_imports()
 
 Which libraries are available?
 - We aim to add all popular Python Data Science libraries which should account for >99% of your daily imports. For example, `pandas` as `pd`, `numpy` as `np`, `seaborn` as `sns`, `matplotlib.pyplot` as `plt`, or `OneHotEncoder` from `sklearn` and many more. In addition, there are also helper modules like `os`, `re`, `tqdm`, or `Path` from `pathlib`.
-- You can check all imports and add new ones in the [pyforest imports](src/pyforest/_imports.py).
+- You can see an overview of all available lazy imports if you type `lazy_imports()` in Python.
+- If you are missing an import, you can add it to the [pyforest imports](src/pyforest/_imports.py).
 
 > In order to gather all the most important names, we need your help. Please open a pull request and add the [imports](src/pyforest/_imports.py) that we are still missing.
 
