@@ -3,7 +3,7 @@ set -e
 # Any subsequent(*) commands which fail will cause the shell script to exit immediately
 
 OUTPUT_FOLDER="dist"
-PYTHON_VERSION=(2.7 3.4 3.5 3.6 3.7)
+PYTHON_VERSION=(3.6 3.7)
 # TODO: read username and password from separate file that is gitingored
 ANACONDA_USERNAME="username"
 ANACONDA_PASSWORD="password"
