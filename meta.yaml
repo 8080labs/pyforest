@@ -5,9 +5,9 @@ package:
   version: "{{ version }}"
 
 source:
-  #git_url: https://github.com/8080labs/pyforest.git
-  #fn: ""
-  path: ./
+  git_url: https://github.com/8080labs/pyforest.git
+  git_rev: "v{{ version }}"
+  #path: ./
 
 build:
   number: 0
