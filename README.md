@@ -119,7 +119,7 @@ pd = LazyImport("import pandas as pd")
 
 
 ## About
-pyforest is developed by Florian, Tobias and Guido from 8080 Labs. Our goal is to improve the productivity of Python Data Scientists. Other projects that we are working on are [edaviz.com](https://edaviz.com) and [bamboolib.com](https://bamboolib.com)
+pyforest is developed by Florian, Tobias and Guido from [8080 Labs](https://8080labs.com). Our goal is to improve the productivity of Python Data Scientists. Other projects that we are working on are [edaviz](https://edaviz.com) and [bamboolib](https://bamboolib.com)
 
 
 ## Join our community and grow further
