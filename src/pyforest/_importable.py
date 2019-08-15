@@ -36,12 +36,12 @@ class LazyImport(object):
     # among others, called during auto-completion of IPython/Jupyter
     def __dir__(self):
         self.__maybe_import__()
-        return eval(f"dir({self.__imported_name__})")
+        return eval("dir({})".format({self.__imported_name__}))
 
     # called for undefined attribute and returns the attribute of the imported module
     def __getattr__(self, attribute):
         self.__maybe_import__()
-        return eval(f"{self.__imported_name__}.{attribute}")
+        return eval("{}.{}".format(self.__imported_name__, attribute))
 
     # called for callable objects, e.g. from pathlib import Path; Path(".")
     def __call__(self, *args, **kwargs):
@@ -59,9 +59,9 @@ class LazyImport(object):
             # next line only adds imported_name into the local scope but does not trigger a new import
             # because the lazy_import was already imported via another trigger
             self.__maybe_import__()
-            return f"active pyforest.LazyImport of {eval(self.__imported_name__)}"
+            return "active pyforest.LazyImport of eval({})".format(self.__imported_name__)
         else:
-            return f"lazy pyforest.LazyImport for '{self.__import_statement__}'"
+            return "lazy pyforest.LazyImport for '{}'".format(self.__import_statement__)
 
 
 def _import_statements(symbol_dict, was_imported=True):
