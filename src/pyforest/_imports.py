@@ -54,6 +54,8 @@ alt = LazyImport("import altair as alt")
 
 pydot = LazyImport("import pydot")
 
+# statistics
+statistics = LazyImport("import statistics")
 
 ### Machine Learning
 sklearn = LazyImport("import sklearn")
