@@ -90,7 +90,8 @@ conda_build_for_all_python_versions
 convert_conda_builds_for_all_plattforms
 #conda install anaconda-client
 echo "anaconda login..."
-anaconda login --username $ANACONDA_USERNAME --password $ANACONDA_PASSWORD
+#anaconda login --username $ANACONDA_USERNAME --password $ANACONDA_PASSWORD
+anaconda login
 anaconda_upload
 anaconda logout
 
