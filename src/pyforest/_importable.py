@@ -35,8 +35,11 @@ class LazyImport(object):
     def __maybe_import__(self):
         self.__maybe_import_complementary_imports__()
         exec(self.__import_statement__, globals())
+        prev_imported = self.__was_imported__
         # Attention: if the import fails, the next line will not be reached
         self.__was_imported__ = True
+        if not prev_imported:
+            _update_import_cell()
 
     # among others, called during auto-completion of IPython/Jupyter
     def __dir__(self):
@@ -67,6 +70,24 @@ class LazyImport(object):
             return f"active pyforest.LazyImport of {eval(self.__imported_name__)}"
         else:
             return f"lazy pyforest.LazyImport for '{self.__import_statement__}'"
+
+
+def _update_import_cell():
+    try:
+        from IPython.display import display, Javascript
+    except ImportError:
+        return
+    
+    import inspect
+    statements = []
+    for frame in inspect.stack()[2:]:
+        lazy_imports = {s for s in frame[0].f_globals.values() if isinstance(s, LazyImport)}
+        if lazy_imports:
+            statements = [s.__import_statement__ for s in lazy_imports if s.__was_imported__]
+            break
+    display(Javascript('''
+        if (window.update_imports_cell) {{ window.update_imports_cell({!r}); }}
+    '''.format('\n'.join(statements))))
 
 
 def _import_statements(symbol_dict, was_imported=True):
