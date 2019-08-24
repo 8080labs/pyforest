@@ -20,3 +20,10 @@ def _jupyter_nbextension_paths():
         'dest': 'pyforest',
         'require': 'pyforest/index'
     }]
+
+
+def _jupyter_labextension_paths():
+    return [{
+        'name': 'pyforest',
+        'src': 'static',
+    }]
