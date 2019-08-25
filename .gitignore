@@ -53,3 +53,6 @@ MANIFEST
 .vscode/*
 examples/*.py
 anaconda_credentials.txt
+
+node_modules
+yarn.lock

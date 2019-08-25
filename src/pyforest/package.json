@@ -4,7 +4,7 @@
 	"version": "0.0.1",
 	"description": "Automatically adds lazy imports to first cell.",
 	"author": "valtron",
-	"main": "src/pyforest/static/labextension.js",
+	"main": "static/labextension.js",
 	"keywords": [
 		"jupyter",
 		"jupyterlab",

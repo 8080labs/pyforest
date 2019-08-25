@@ -18,7 +18,7 @@ def _jupyter_nbextension_paths():
         'section': 'notebook',
         'src': 'static',
         'dest': 'pyforest',
-        'require': 'pyforest/index'
+        'require': 'pyforest/nbextension'
     }]
 
 
