@@ -60,16 +60,31 @@ statistics = LazyImport("import statistics")
 ### Machine Learning
 sklearn = LazyImport("import sklearn")
 OneHotEncoder = LazyImport("from sklearn.preprocessing import OneHotEncoder")
+TSNE                       = LazyImport("from sklearn.manifold import TSNE")
+train_test_split           = LazyImport("from sklearn.cross_validation import train_test_split")
+svm                        = LazyImport("from sklearn import svm")
+GradientBoostingClassifier = LazyImport("from sklearn.ensemble import GradientBoostingClassifier")
+GradientBoostingRegressor  = LazyImport("from sklearn.ensemble import GradientBoostingRegressor")
+RandomForestClassifier     = LazyImport("from sklearn.ensemble import RandomForestClassifier")
+RandomForestRegressor      = LazyImport("from sklearn.ensemble import RandomForestRegressor")  
+     
+### This is an NLP related feature but i have still put it here as it belongs to sklearn.Please delete this comment in the review
+TfidfVectorizer  = LazyImport("from sklearn.feature_extraction.text import TfidfVectorizer")
+
+
 # TODO: add all the other most important sklearn objects
+# TODO: add separate sections within machine learning viz. Classification, Regression, Error Functions, Clustering
 
 # Deep Learning
 tf = LazyImport("import tensorflow as tf")
 keras = LazyImport("import keras")
 
 # NLP
-nltk = LazyImport("import nltk")
+nltk   = LazyImport("import nltk")
 gensim = LazyImport("import gensim")
-spacy = LazyImport("import spacy")
+spacy  = LazyImport("import spacy")
+re     = LazyImport ("import re")
+
 
 
 ### Helper
