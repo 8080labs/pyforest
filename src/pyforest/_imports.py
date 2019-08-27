@@ -60,9 +60,6 @@ statistics = LazyImport("import statistics")
 ### Machine Learning
 sklearn = LazyImport("import sklearn")
 OneHotEncoder = LazyImport("from sklearn.preprocessing import OneHotEncoder")
-
-
-### New additions by github.com/mayanksoni20. Please delete this comment in the review
 TSNE                       = LazyImport("from sklearn.manifold import TSNE")
 train_test_split           = LazyImport("from sklearn.cross_validation import train_test_split")
 svm                        = LazyImport("from sklearn import svm")
