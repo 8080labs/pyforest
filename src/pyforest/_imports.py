@@ -74,7 +74,6 @@ RandomForestClassifier = LazyImport(
 )
 RandomForestRegressor = LazyImport("from sklearn.ensemble import RandomForestRegressor")
 
-### This is an NLP related feature but i have still put it here as it belongs to sklearn.Please delete this comment in the review
 TfidfVectorizer = LazyImport(
     "from sklearn.feature_extraction.text import TfidfVectorizer"
 )
