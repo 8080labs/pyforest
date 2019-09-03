@@ -35,6 +35,9 @@ SparkContext = LazyImport("from pyspark import SparkContext")
 
 load_workbook = LazyImport("from openpyxl import load_workbook")
 
+it = LazyImport("import itertools as it")
+
+tz = LazyImport("import toolz as tz")
 
 ### Data Visualization and Plotting
 mpl = LazyImport("import matplotlib as mpl")
