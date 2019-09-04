@@ -7,7 +7,7 @@ set -e
 # conda build returns output path of the .tar.bz2 file
 # conda convert --platform all <path of tar.bz2 file>  -o $HOME/conda-bld/
 # anaconda login
-# anaconda upload <path of tar.bz2 files>
+# anaconda upload <path of tar.bz2 file> (have to do that for each tar file)
 # repeat upload for all plattforms and python versions
 # anaconda logout
 
@@ -20,9 +20,9 @@ PYTHON_VERSION=(3.6 3.7)
 echo "Building conda package ..."
 
 # building conda packages
-for i in "${PYTHON_VERSION[@]}"
+for py_version in "${PYTHON_VERSION[@]}"
 do
-	conda build . --python $py
+	conda build . --python $py_version
 done
 
 # convert package to other platforms
@@ -36,7 +36,7 @@ do
     do
        conda convert --platform $platform $file  -o $HOME/conda-bld/
     done
-    
+
 done
 
 #anaconda login --username $ANACONDA_USERNAME --password $ANACONDA_PASSWORD
