@@ -9,9 +9,9 @@ source:
   git_rev: "{{ version }}"
   #path: ./
 
-build:
-  number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+# build:
+#   number: 0
+#   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
 
 requirements:
   build:
