@@ -92,6 +92,9 @@ gensim = LazyImport("import gensim")
 spacy = LazyImport("import spacy")
 re = LazyImport("import re")
 
+### Image processing
+cv2 = LazyImport("import cv2")
+cv = LazyImport("import cv2 as cv")
 
 ### Helper
 sys = LazyImport("import sys")
