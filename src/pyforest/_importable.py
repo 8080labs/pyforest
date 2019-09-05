@@ -79,15 +79,16 @@ def _update_import_cell():
         return
     
     import inspect
+    from .widget import PyforestWidget
+    
     statements = []
+    # TODO: Figure out why it's not at a fixed level/a less fragile way
     for frame in inspect.stack()[2:]:
         lazy_imports = {s for s in frame[0].f_globals.values() if isinstance(s, LazyImport)}
         if lazy_imports:
             statements = [s.__import_statement__ for s in lazy_imports if s.__was_imported__]
             break
-    display(Javascript('''
-        if (window.update_imports_cell) {{ window.update_imports_cell({!r}); }}
-    '''.format('\n'.join(statements))))
+    display(PyforestWidget(imports=statements))
 
 
 def _import_statements(symbol_dict, was_imported=True):

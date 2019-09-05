@@ -1,29 +1,40 @@
-define([], function () {
-	function setup_lab(notebookTracker) {
-		window.update_imports_cell = function (importStr) {
-			var cv = notebookTracker.currentWidget.model.cells.get(0).value;
-			cv.text = updateImports(importStr, cv.text);
+define(['lodash', '@jupyter-widgets/base', '../package.json'], function (_, widgets, package_) {
+	function makeWidget(getFirstCellContent, setFirstCellContent) {
+		const PyforestWidget = widgets.DOMWidgetView.extend({
+			render: function () {
+				const content = getFirstCellContent();
+				setFirstCellContent(updateImports(this.model.get('imports'), content));
+			}
+		});
+		
+		const PyforestWidgetModel = widgets.DOMWidgetModel.extend({
+			defaults: _.extend(widgets.DOMWidgetModel.prototype.defaults(), {
+				_model_name: 'PyforestWidgetModel',
+				_view_name: 'PyforestWidget',
+				_model_module: package_.name,
+				_view_module: package_.name,
+				_model_module_version: package_.version,
+				_view_module_version: package_.version,
+				imports: []
+			})
+		});
+		
+		return {
+			PyforestWidget: PyforestWidget,
+			PyforestWidgetModel: PyforestWidgetModel
 		};
 	}
 	
-	function setup_notebook(Jupyter) {
-		window.update_imports_cell = function (importStr) {
-			var doc = Jupyter.notebook.get_cell(0).code_mirror.getDoc();
-			doc.setValue(updateImports(importStr, doc.getValue()));
-		};
-	}
-	
-	function updateImports(importStr, currentContent) {
-		var sep = '# ^^^ pyforest imports ^^^';
-		var parts = currentContent.split(sep);
+	function updateImports(imports, currentContent) {
+		const sep = '# ^^^ pyforest imports ^^^';
+		let parts = currentContent.split(sep);
 		if (parts.length > 1) {
 			parts = parts.splice(1);
 		}
-		return importStr + '\n' + sep + '\n' + parts.join('\n').trim('\n');
+		return imports.join('\n') + '\n' + sep + '\n' + parts.join('\n').trim('\n');
 	}
 	
 	return {
-		setup_lab: setup_lab,
-		setup_notebook: setup_notebook
+		makeWidget: makeWidget
 	};
 });

@@ -1,9 +1,14 @@
-define(['base/js/namespace', './common'], function (Jupyter, common) {
-	function load_ipython_extension() {
-		common.setup_notebook(Jupyter);
-	}
-	
-	return {
-		load_ipython_extension: load_ipython_extension
-	};
-});
+if (window.require) {
+	window.require.config({
+		map: {
+			"*" : {
+				"pyforest": "nbextensions/pyforest/extension_impl",
+			}
+		}
+	});
+}
+
+// Export the required load_ipython_extension
+module.exports = {
+	load_ipython_extension: function() {}
+};
