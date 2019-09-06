@@ -25,13 +25,22 @@ define(['lodash', '@jupyter-widgets/base', '../package.json'], function (_, widg
 		};
 	}
 	
+	const begin = '# begin pyforest imports';
+	const end = '# end pyforest imports';
+	const any = '[\\s\\S]*';
+	const importRegex = new RegExp([
+		'^(', any, ')', begin, '\n', any, end, '(', any, ')$'
+	].join(''), 'mi');
+	
 	function updateImports(imports, currentContent) {
-		const sep = '# ^^^ pyforest imports ^^^';
-		let parts = currentContent.split(sep);
-		if (parts.length > 1) {
-			parts = parts.splice(1);
+		let match = currentContent.match(importRegex);
+		if (match == null) {
+			match = ['', currentContent, ''];
 		}
-		return imports.join('\n') + '\n' + sep + '\n' + parts.join('\n').trim('\n');
+		if (match[1].length > 0 && match[1].substr(-1) != '\n') {
+			match[1] += '\n'
+		}
+		return [match[1], begin + '\n', imports.join('\n') + '\n', end, match[2]].join('');
 	}
 	
 	return {
