@@ -6,6 +6,8 @@
 # because it will be easier to monitor the Python __builtins__
 # than to monitor all attributes of libraries that might be imported with pyforest.
 # Read more about dunder methods here: https://dbader.org/blog/meaning-of-underscores-in-python
+
+
 class LazyImport(object):
     def __init__(self, import_statement):
         self.__import_statement__ = import_statement
@@ -23,7 +25,10 @@ class LazyImport(object):
             try:
                 lazy_import.__maybe_import__()
             except:
-                pass  # silently fails if the complementary lazy_import is not available. This is because complementary lazy_imports are considered optional. Please note that direct imports of lazy_imports will fail explicitly.
+                # silently fails if the complementary lazy_import is not available.
+                # This is because complementary lazy_imports are considered optional.
+                # Please note that direct imports of lazy_imports will fail explicitly.
+                pass
 
     # Python will only import the module(s) if they are missing
     # if the module(s) were imported before, this method returns immediately

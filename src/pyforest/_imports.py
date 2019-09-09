@@ -1,6 +1,5 @@
 from ._importable import LazyImport, _import_statements
 
-
 # ADD YOUR IMPORTS BELOW
 # TODO: in this file you can add your most important modules and objects
 
@@ -34,7 +33,6 @@ dd = LazyImport("from dask import dataframe as dd")
 SparkContext = LazyImport("from pyspark import SparkContext")
 
 load_workbook = LazyImport("from openpyxl import load_workbook")
-
 
 ### Data Visualization and Plotting
 mpl = LazyImport("import matplotlib as mpl")
@@ -78,7 +76,6 @@ TfidfVectorizer = LazyImport(
     "from sklearn.feature_extraction.text import TfidfVectorizer"
 )
 
-
 # TODO: add all the other most important sklearn objects
 # TODO: add separate sections within machine learning viz. Classification, Regression, Error Functions, Clustering
 
@@ -92,7 +89,6 @@ gensim = LazyImport("import gensim")
 spacy = LazyImport("import spacy")
 re = LazyImport("import re")
 
-
 ### Helper
 sys = LazyImport("import sys")
 os = LazyImport("import os")
@@ -105,7 +101,6 @@ pickle = LazyImport("import pickle")
 dt = LazyImport("import datetime as dt")
 
 tqdm = LazyImport("import tqdm")
-
 
 #######################################
 ### Complementary, optional imports ###
