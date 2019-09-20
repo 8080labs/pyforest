@@ -129,4 +129,4 @@ If you
 - want to discuss the future of the Python Data Science ecosystem or
 - are just interested in mingling with like-minded fellows
 
-then, you are invited to [join our slack](https://join.slack.com/t/fasterpyds/shared_invite/enQtNzExNDMxNzQ3NTU0LTNhMjI3MTM5ZGZlN2Y4NWIwOWUxZDg4ODE1MzkyNTc1NDhmNjg5ZGZhYmI1ZjBkNzgzMTI3MDcxNWMzZDA0NGQ).
+then, you are invited to [join our slack](https://join.slack.com/t/fasterpyds/shared_invite/enQtNzYxMTMzMDQ4MDk3LTYyNGRiNTE0OGJkNDEzZGRjNjg2Y2I0YWRlNTlmOGUxMjY5MDY5Yjg1MjliM2QwNmNhZmI3N2MxMmY3MGNiODA).
