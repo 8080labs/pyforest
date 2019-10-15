@@ -59,7 +59,7 @@ statistics = LazyImport("import statistics")
 sklearn = LazyImport("import sklearn")
 OneHotEncoder = LazyImport("from sklearn.preprocessing import OneHotEncoder")
 TSNE = LazyImport("from sklearn.manifold import TSNE")
-train_test_split = LazyImport("from sklearn.cross_validation import train_test_split")
+train_test_split = LazyImport("from sklearn.model_selection import train_test_split")
 svm = LazyImport("from sklearn import svm")
 GradientBoostingClassifier = LazyImport(
     "from sklearn.ensemble import GradientBoostingClassifier"
