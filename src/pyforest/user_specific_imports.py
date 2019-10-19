@@ -43,20 +43,20 @@ def clean_import_statements(import_statements: list) -> list:
     return keep_real_imports(cleaned_import_statements)
 
 
-def get_import_statetments_from_user_settings(user_settings_path: str) -> list:
+def _get_import_statetments_from_user_settings(user_settings_path: str) -> list:
     file_in = open(user_settings_path, "r")
     import_statements = file_in.readlines()
 
     return clean_import_statements(import_statements)
 
 
-def maybe_get_import_statetments_from_user_settings() -> list:
+def get_import_statetments_from_user_settings() -> list:
     if not USER_SETTINGS_PATH.exists():
         if not USER_SETTINGS_PATH.parent.exists():
             USER_SETTINGS_PATH.parent.mkdir()
         USER_SETTINGS_PATH.touch()
         USER_SETTINGS_PATH.write_text(TEMPLATE_TEXT)
-    return get_import_statetments_from_user_settings(USER_SETTINGS_PATH)
+    return _get_import_statetments_from_user_settings(USER_SETTINGS_PATH)
 
 
 def assign_imports_to_global_space(import_statements: list) -> None:
@@ -64,8 +64,3 @@ def assign_imports_to_global_space(import_statements: list) -> None:
 
     for symbol, import_statement in zip(symbols, import_statements):
         exec(f"{symbol} = LazyImport('{import_statement}')", globals())
-
-
-def maybe_assign_imports_to_global_space(import_statements: list) -> None:
-    if len(import_statements) > 0:
-        assign_imports_to_global_space(import_statements)

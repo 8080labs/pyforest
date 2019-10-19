@@ -1,7 +1,7 @@
 from ._importable import LazyImport, _import_statements
 from .user_specific_imports import (
-    maybe_get_import_statetments_from_user_settings,
-    maybe_assign_imports_to_global_space,
+    get_import_statetments_from_user_settings,
+    assign_imports_to_global_space,
 )
 
 # YOU CAN SAVE OWN IMPORTS IN ~/.pyforest/user_imports.py
@@ -117,8 +117,8 @@ tqdm = LazyImport("import tqdm")
 # Please note: imports in ~/.pyforest/user_imports.py take precedence over the
 # imports above.
 
-user_import_statements = maybe_get_import_statetments_from_user_settings()
-maybe_assign_imports_to_global_space(user_import_statements)
+user_import_statements = get_import_statetments_from_user_settings()
+assign_imports_to_global_space(user_import_statements)
 
 
 #######################################
