@@ -62,7 +62,7 @@ def assign_imports_to_global_space(import_statements: list) -> None:
     symbols = [import_statement.split()[-1] for import_statement in import_statements]
 
     for symbol, import_statement in zip(symbols, import_statements):
-        exec(f"{symbol} = LazyImport({import_statement})", globals())
+        exec(f"{symbol} = LazyImport('{import_statement}')", globals())
 
 
 def maybe_assign_imports_to_global_space(import_statements: list) -> None:
