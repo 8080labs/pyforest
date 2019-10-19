@@ -59,8 +59,13 @@ def get_import_statetments_from_user_settings() -> list:
     return _get_import_statetments_from_user_settings(USER_SETTINGS_PATH)
 
 
-def assign_imports_to_global_space(import_statements: list) -> None:
+def assign_imports_to_global_space(import_statements: list, globals_) -> None:
     symbols = [import_statement.split()[-1] for import_statement in import_statements]
 
     for symbol, import_statement in zip(symbols, import_statements):
-        exec(f"{symbol} = LazyImport('{import_statement}')", globals())
+        exec(f"{symbol} = LazyImport('{import_statement}')", globals_)
+
+
+def _load_user_specific_imports(globals_):
+    user_import_statements = get_import_statetments_from_user_settings()
+    assign_imports_to_global_space(user_import_statements, globals_)
