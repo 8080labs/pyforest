@@ -48,7 +48,7 @@ def _read_import_statetments_from_user_settings(user_settings_path: str) -> list
     return file_in.readlines()
 
 
-def _maybe_init_user_imports_directory(user_imports_path: pathlib.Path):
+def _maybe_init_user_imports_directory(user_imports_path: pathlib.Path) -> None:
     if not user_imports_path.parent.exists():
         user_imports_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -73,7 +73,7 @@ def _assign_imports_to_global_space(import_statements: list, globals_) -> None:
         exec(f"{symbol} = LazyImport('{import_statement}')", globals_)
 
 
-def _load_user_specific_imports(globals_):
+def _load_user_specific_imports(globals_: dict) -> None:
     user_import_statements = _get_import_statetments_from_user_settings(
         USER_IMPORTS_PATH
     )
