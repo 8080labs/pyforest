@@ -8,7 +8,7 @@ TEMPLATE_TEXT = (
     "# e.g\n"
     "# import pandas as pd\n"
     "# from pathlib import Path\n"
-    "# import re"
+    "# import re\n"
 )
 
 
@@ -48,12 +48,12 @@ def _read_import_statetments_from_user_settings(user_settings_path: str) -> list
     return file_in.readlines()
 
 
-def _maybe_init_user_imports_directory(user_imports_path: pathlib.Path) -> None:
+def _maybe_init_user_imports_directory(user_imports_path: Path) -> None:
     if not user_imports_path.parent.exists():
         user_imports_path.parent.mkdir(parents=True, exist_ok=True)
 
 
-def _maybe_init_user_imports_file(user_imports_path: pathlib.Path) -> None:
+def _maybe_init_user_imports_file(user_imports_path: Path) -> None:
     if not user_imports_path.exists():
         _maybe_init_user_imports_directory(user_imports_path)
         user_imports_path.touch()
@@ -73,8 +73,9 @@ def _assign_imports_to_global_space(import_statements: list, globals_) -> None:
         exec(f"{symbol} = LazyImport('{import_statement}')", globals_)
 
 
-def _load_user_specific_imports(globals_: dict) -> None:
+# add user_imports_path as argument so that we can run tests on that function
+def _load_user_specific_imports(globals_: dict, user_imports_path=USER_IMPORTS_PATH) -> None:
     user_import_statements = _get_import_statetments_from_user_settings(
-        USER_IMPORTS_PATH
+        user_imports_path
     )
     _assign_imports_to_global_space(user_import_statements, globals_)
