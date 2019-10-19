@@ -74,7 +74,9 @@ def _assign_imports_to_global_space(import_statements: list, globals_) -> None:
 
 
 # add user_imports_path as argument so that we can run tests on that function
-def _load_user_specific_imports(globals_: dict, user_imports_path=USER_IMPORTS_PATH) -> None:
+def _load_user_specific_imports(
+    globals_: dict, user_imports_path=USER_IMPORTS_PATH
+) -> None:
     user_import_statements = _get_import_statetments_from_user_settings(
         user_imports_path
     )
