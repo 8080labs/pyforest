@@ -75,3 +75,4 @@ def test_user_imports():
     assert isinstance(test_import, LazyImport)
 
     cleanup_test_file()
+    assert not USER_IMPORTS_PATH.exists()
