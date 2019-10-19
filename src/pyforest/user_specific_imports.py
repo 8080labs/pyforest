@@ -1,3 +1,4 @@
+from ._importable import LazyImport
 from pathlib import Path
 
 USER_SETTINGS_PATH = Path.home() / ".pyforest" / "user_imports.py"
