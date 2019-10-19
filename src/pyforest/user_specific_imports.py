@@ -50,12 +50,20 @@ def _get_import_statetments_from_user_settings(user_settings_path: str) -> list:
     return clean_import_statements(import_statements)
 
 
-def get_import_statetments_from_user_settings(user_imports_path) -> list:
+def maybe_init_user_imports_directory(user_imports_path: Path):
+    if not user_imports_path.parent.exists():
+        user_imports_path.parent.mkdir(parents=True, exist_ok=True)
+
+
+def maybe_init_user_imports_file(user_imports_path: Path) -> None:
     if not user_imports_path.exists():
-        if not user_imports_path.parent.exists():
-            user_imports_path.parent.mkdir(parents=True, exist_ok=True)
+        maybe_init_user_imports_directory(user_imports_path)
         user_imports_path.touch()
         user_imports_path.write_text(TEMPLATE_TEXT)
+
+
+def get_import_statetments_from_user_settings(user_imports_path) -> list:
+    maybe_init_user_imports_file(user_imports_path)
     return _get_import_statetments_from_user_settings(user_imports_path)
 
 
