@@ -93,6 +93,9 @@ Please note, that this will also add pyforest to your IPython default startup se
 - __"How to deactivate complementary imports?"__
     - You can uncomment the statements `*.__on_import__()` at the bottom of the [pyforest imports](src/pyforest/_imports.py) file.
 
+- __"How to add my own import statements without adding them to the package source code?"__
+    - pyforest creates a file `~/.pyforest/user_imports.py`, in which you can type any **explicit** import statements you want. **Please note:** implicit imports (e.g. `from pandas import *`) won't work. Besides, you shouldn't write implicit imports anyway. Those are only for bad programmers like the authors of pyforest :)
+
 - __"Why is the project called pyforest?"__
     - In which ecosystem do pandas live?
 
