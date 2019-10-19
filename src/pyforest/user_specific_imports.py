@@ -1,7 +1,7 @@
 from ._importable import LazyImport
 from pathlib import Path
 
-USER_SETTINGS_PATH = Path.home() / ".pyforest" / "user_imports.py"
+USER_IMPORTS_PATH = Path.home() / ".pyforest" / "user_imports.py"
 
 TEMPLATE_TEXT = (
     "# Add your imports here, line by line\n"
@@ -50,13 +50,13 @@ def _get_import_statetments_from_user_settings(user_settings_path: str) -> list:
     return clean_import_statements(import_statements)
 
 
-def get_import_statetments_from_user_settings() -> list:
-    if not USER_SETTINGS_PATH.exists():
-        if not USER_SETTINGS_PATH.parent.exists():
-            USER_SETTINGS_PATH.parent.mkdir(exist_ok=True)
-        USER_SETTINGS_PATH.touch()
-        USER_SETTINGS_PATH.write_text(TEMPLATE_TEXT)
-    return _get_import_statetments_from_user_settings(USER_SETTINGS_PATH)
+def get_import_statetments_from_user_settings(user_imports_path) -> list:
+    if not user_imports_path.exists():
+        if not user_imports_path.parent.exists():
+            user_imports_path.parent.mkdir(exist_ok=True)
+        user_imports_path.touch()
+        user_imports_path.write_text(TEMPLATE_TEXT)
+    return _get_import_statetments_from_user_settings(user_imports_path)
 
 
 def assign_imports_to_global_space(import_statements: list, globals_) -> None:
@@ -67,5 +67,7 @@ def assign_imports_to_global_space(import_statements: list, globals_) -> None:
 
 
 def _load_user_specific_imports(globals_):
-    user_import_statements = get_import_statetments_from_user_settings()
+    user_import_statements = get_import_statetments_from_user_settings(
+        USER_IMPORTS_PATH
+    )
     assign_imports_to_global_space(user_import_statements, globals_)
