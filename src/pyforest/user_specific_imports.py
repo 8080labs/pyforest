@@ -53,7 +53,7 @@ def _get_import_statetments_from_user_settings(user_settings_path: str) -> list:
 def get_import_statetments_from_user_settings() -> list:
     if not USER_SETTINGS_PATH.exists():
         if not USER_SETTINGS_PATH.parent.exists():
-            USER_SETTINGS_PATH.parent.mkdir()
+            USER_SETTINGS_PATH.parent.mkdir(exist_ok=True)
         USER_SETTINGS_PATH.touch()
         USER_SETTINGS_PATH.write_text(TEMPLATE_TEXT)
     return _get_import_statetments_from_user_settings(USER_SETTINGS_PATH)
