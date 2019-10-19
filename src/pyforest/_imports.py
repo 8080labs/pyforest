@@ -1,4 +1,8 @@
 from ._importable import LazyImport, _import_statements
+from .user_specific_imports import (
+    maybe_get_import_statetments_from_user_settings,
+    maybe_assign_imports_to_global_space,
+)
 
 # YOU CAN SAVE OWN IMPORTS IN ~/.pyforest/user_imports.py
 # TODO: in this file you can also add your most important modules and objects, but we
