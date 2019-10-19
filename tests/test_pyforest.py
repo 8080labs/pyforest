@@ -72,6 +72,6 @@ def test_user_imports():
     assert USER_IMPORTS_PATH.exists()
 
     _load_user_specific_imports(globals_=globals(), user_imports_path=USER_IMPORTS_PATH)
-    assert test_import
+    assert isinstance(test_import, LazyImport)
 
     cleanup_test_file()
