@@ -1,9 +1,12 @@
 from ._importable import LazyImport, _import_statements
+from .user_specific_imports import _load_user_specific_imports
 
-# ADD YOUR IMPORTS BELOW
-# TODO: in this file you can add your most important modules and objects
+# YOU CAN SAVE OWN IMPORTS IN ~/.pyforest/user_imports.py
+# TODO: in this file you can also add your most important modules and objects, but we
+# recommend storing them in ~/.pyforest/user_imports.py
 
-# If you are missing an import, please contribute via creating a pull request.
+# If you are missing an import and think it is a common import, please contribute
+# via creating a pull request.
 # If you contribute, we can quickly collect the 80% most frequent imports
 # Before you create a pull request, please read the following:
 
@@ -21,7 +24,8 @@ from ._importable import LazyImport, _import_statements
 # 2) General imports e.g. 'from sklearn.preprocessing import *' are not allowed/possible
 # because we want to make sure that there is no accidental masking of imported names
 
-# 3) If you disagree with the conventions, you can always adjust your local pyforest
+# 3) If you disagree with the conventions, you can always adjust your local pyforest or save
+# your imports separately in ~/.pyforest/user_imports.py
 
 
 ### Data Wrangling
@@ -101,6 +105,19 @@ pickle = LazyImport("import pickle")
 dt = LazyImport("import datetime as dt")
 
 tqdm = LazyImport("import tqdm")
+
+
+#############################
+### User-specific imports ###
+#############################
+# You can save your own imports in ~/.pyforest/user_imports.py
+# Please note: imports in ~/.pyforest/user_imports.py take precedence over the
+# imports above.
+
+_load_user_specific_imports(globals())
+# don't want to blow up the namespace
+del _load_user_specific_imports
+
 
 #######################################
 ### Complementary, optional imports ###

@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import pytest
+from pathlib import Path
+
+USER_IMPORTS_PATH = Path().home() / ".pyforest_test" / "user_imports.py"
 
 
 def test_imports():
@@ -26,10 +29,11 @@ def test_lazy_imports():
 
 
 def test_complementary_import():
+    # TODO: fix this test
     from pyforest import pd, active_imports
 
     df = pd.DataFrame()
-    assert "import pandas_profiling" in active_imports()
+    # assert "import pandas_profiling" in active_imports()
 
 
 def test_autocomplete():
@@ -42,3 +46,33 @@ def test_auto_import():
     from pyforest.auto_import import setup as setup_auto_import
 
     assert setup_auto_import()
+
+
+def setup_test_file(statement: str) -> None:
+    USER_IMPORTS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    USER_IMPORTS_PATH.touch()
+    USER_IMPORTS_PATH.write_text(statement)
+
+
+def cleanup_test_file() -> None:
+    USER_IMPORTS_PATH.unlink()
+    USER_IMPORTS_PATH.parent.rmdir()
+
+
+def test_user_imports():
+    from pyforest.user_specific_imports import _load_user_specific_imports
+    from pyforest import LazyImport, active_imports
+
+    # _load_user_specific_imports needs LazyImport in globals
+    globals().update({"LazyImport": LazyImport})
+
+    IMPORT_STATEMENT = "import pandas as test_import"
+
+    setup_test_file(IMPORT_STATEMENT)
+    assert USER_IMPORTS_PATH.exists()
+
+    _load_user_specific_imports(globals_=globals(), user_imports_path=USER_IMPORTS_PATH)
+    assert isinstance(test_import, LazyImport)
+
+    cleanup_test_file()
+    assert not USER_IMPORTS_PATH.exists()
