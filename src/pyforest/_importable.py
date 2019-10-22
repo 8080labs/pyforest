@@ -35,8 +35,16 @@ class LazyImport(object):
     def __maybe_import__(self):
         self.__maybe_import_complementary_imports__()
         exec(self.__import_statement__, globals())
-        # Attention: if the import fails, the next line will not be reached
+        # Attention: if the import fails, the next lines will not be reached
         self.__was_imported__ = True
+        try:
+            self.__doc__ = eval(f"{self.__imported_name__}.__doc__")
+
+            from inspect import signature
+
+            self.__signature__ = eval(f"signature({self.__imported_name__})")
+        except:
+            pass
 
     # among others, called during auto-completion of IPython/Jupyter
     def __dir__(self):
