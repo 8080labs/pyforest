@@ -11,3 +11,19 @@ except DistributionNotFound:
     __version__ = "unknown"
 finally:
     del get_distribution, DistributionNotFound
+
+
+def _jupyter_nbextension_paths():
+    return [{
+        'section': 'notebook',
+        'src': 'static',
+        'dest': 'pyforest',
+        'require': 'pyforest/extension'
+    }]
+
+
+def _jupyter_labextension_paths():
+    return [{
+        'name': 'pyforest',
+        'src': 'static',
+    }]

@@ -37,6 +37,14 @@ When you are done with your script, you can export all import statements via:
 active_imports()
 ```
 
+You can also install the notebook/lab extensions to automatically add the imports to the first cell, as they're imported:
+
+```
+python -m pyforest install_extensions
+```
+
+![demo](examples/assets/pyforest_demo_extensions.gif)
+
 Which libraries are available?
 - We aim to add all popular Python Data Science libraries which should account for >99% of your daily imports. For example, `pandas` as `pd`, `numpy` as `np`, `seaborn` as `sns`, `matplotlib.pyplot` as `plt`, or `OneHotEncoder` from `sklearn` and many more. In addition, there are also helper modules like `os`, `re`, `tqdm`, or `Path` from `pathlib`.
 - You can see an overview of all available lazy imports if you type `lazy_imports()` in Python.

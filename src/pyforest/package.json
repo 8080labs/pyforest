@@ -1,0 +1,24 @@
+{
+	"private": true,
+	"name": "pyforest",
+	"version": "0.0.1",
+	"description": "Automatically adds lazy imports to first cell.",
+	"author": "valtron",
+	"main": "static/labextension.js",
+	"keywords": [
+		"jupyter",
+		"jupyterlab",
+		"jupyterlab-extension"
+	],
+	"files": [
+		"static/*.js"
+	],
+	"jupyterlab": {
+		"extension": true
+	},
+	"scripts": {},
+	"dependencies": {
+		"@jupyter-widgets/base": "^1.1 || ^2",
+		"lodash": "^4.17.4"
+	}
+}
