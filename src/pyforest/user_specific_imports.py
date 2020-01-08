@@ -3,13 +3,12 @@ from pathlib import Path
 
 USER_IMPORTS_PATH = Path.home() / ".pyforest" / "user_imports.py"
 
-TEMPLATE_TEXT = (
-    "# Add your imports here, line by line\n"
-    "# e.g\n"
-    "# import pandas as pd\n"
-    "# from pathlib import Path\n"
-    "# import re\n"
-)
+TEMPLATE_TEXT = """# Add your imports here, line by line
+# e.g
+# import pandas as pd
+# from pathlib import Path
+# import re
+"""
 
 
 def _clean_line(x: str) -> str:
