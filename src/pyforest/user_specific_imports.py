@@ -42,7 +42,7 @@ def _clean_import_statements(import_statements: list) -> list:
     return _keep_real_imports(cleaned_import_statements)
 
 
-def _read_import_statetments_from_user_settings(user_settings_path: str) -> list:
+def _read_import_statements_from_user_settings(user_settings_path: str) -> list:
     file_in = open(user_settings_path, "r")
     return file_in.readlines()
 
@@ -59,9 +59,9 @@ def _maybe_init_user_imports_file(user_imports_path: Path) -> None:
         user_imports_path.write_text(TEMPLATE_TEXT)
 
 
-def _get_import_statetments_from_user_settings(user_imports_path) -> list:
+def _get_import_statements_from_user_settings(user_imports_path) -> list:
     _maybe_init_user_imports_file(user_imports_path)
-    import_statements = _read_import_statetments_from_user_settings(user_imports_path)
+    import_statements = _read_import_statements_from_user_settings(user_imports_path)
     return _clean_import_statements(import_statements)
 
 
@@ -76,7 +76,7 @@ def _assign_imports_to_global_space(import_statements: list, globals_) -> None:
 def _load_user_specific_imports(
     globals_: dict, user_imports_path=USER_IMPORTS_PATH
 ) -> None:
-    user_import_statements = _get_import_statetments_from_user_settings(
+    user_import_statements = _get_import_statements_from_user_settings(
         user_imports_path
     )
     _assign_imports_to_global_space(user_import_statements, globals_)
