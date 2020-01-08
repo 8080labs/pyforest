@@ -31,7 +31,7 @@ def _find_imports(file_lines: list) -> list:
     return [file_line for file_line in file_lines if _is_import_statement(file_line)]
 
 
-def _get_import_statements(file_lines: list) -> list:
+def _get_imports(file_lines: list) -> list:
     cleaned_lines = [_clean_line(line) for line in file_lines]
     return _find_imports(cleaned_lines)
 
@@ -53,10 +53,10 @@ def _maybe_init_user_imports_file(user_imports_path: Path) -> None:
         user_imports_path.write_text(TEMPLATE_TEXT)
 
 
-def _get_import_statements_from_user_settings(user_imports_path) -> list:
+def _get_imports_from_user_settings(user_imports_path) -> list:
     _maybe_init_user_imports_file(user_imports_path)
     file_lines = _read_file_lines_from_user_settings(user_imports_path)
-    return _get_import_statements(file_lines)
+    return _get_imports(file_lines)
 
 
 def _assign_imports_to_globals(import_statements: list, globals_) -> None:
@@ -71,5 +71,5 @@ def _assign_imports_to_globals(import_statements: list, globals_) -> None:
 def _load_user_specific_imports(
     globals_: dict, user_imports_path=USER_IMPORTS_PATH
 ) -> None:
-    import_statements = _get_import_statements_from_user_settings(user_imports_path)
+    import_statements = _get_imports_from_user_settings(user_imports_path)
     _assign_imports_to_globals(import_statements, globals_)

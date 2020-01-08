@@ -1,4 +1,4 @@
-from ._importable import LazyImport, _import_statements
+from ._importable import LazyImport, _get_import_statements
 from .user_specific_imports import _load_user_specific_imports
 
 # YOU CAN SAVE OWN IMPORTS IN ~/.pyforest/user_imports.py
@@ -138,8 +138,8 @@ pd.__on_import__(eda)  # adds GUI to pd.DataFrame when IPython frontend can disp
 ### dont make adjustments below this line ########
 ##################################################
 def lazy_imports():
-    return _import_statements(globals(), was_imported=False)
+    return _get_import_statements(globals(), was_imported=False)
 
 
 def active_imports():
-    return _import_statements(globals(), was_imported=True)
+    return _get_import_statements(globals(), was_imported=True)

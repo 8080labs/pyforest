@@ -69,7 +69,7 @@ class LazyImport(object):
             return f"lazy pyforest.LazyImport for '{self.__import_statement__}'"
 
 
-def _import_statements(symbol_dict, was_imported=True):
+def _get_import_statements(symbol_dict, was_imported=True):
     statements = []
     for _, symbol in symbol_dict.items():
         if isinstance(symbol, LazyImport) and (symbol.__was_imported__ == was_imported):
