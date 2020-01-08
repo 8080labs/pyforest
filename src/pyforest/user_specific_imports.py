@@ -63,8 +63,7 @@ def _assign_imports_to_globals(import_statements: list, globals_) -> None:
     symbols = [import_statement.split()[-1] for import_statement in import_statements]
 
     for symbol, import_statement in zip(symbols, import_statements):
-        if symbol not in globals_.keys():
-            exec(f"{symbol} = LazyImport('{import_statement}')", globals_)
+        exec(f"{symbol} = LazyImport('{import_statement}')", globals_)
 
 
 # user_imports_path exists as argument so that we can run tests on the function
