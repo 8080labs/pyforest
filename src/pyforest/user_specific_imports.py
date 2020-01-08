@@ -23,26 +23,20 @@ def _is_empty_line(x: str) -> bool:
     return x == ""
 
 
-def _is_real_import(x: str) -> bool:
+def _is_import_statement(x: str) -> bool:
     return not (_is_comment(x) or _is_empty_line(x))
 
 
-def _keep_real_imports(import_statements: list) -> list:
-    return [
-        import_statement
-        for import_statement in import_statements
-        if _is_real_import(import_statement)
-    ]
+def _find_imports(file_lines: list) -> list:
+    return [file_line for file_line in file_lines if _is_import_statement(file_line)]
 
 
-def _clean_import_statements(import_statements: list) -> list:
-    cleaned_import_statements = [
-        _clean_line(import_statement) for import_statement in import_statements
-    ]
-    return _keep_real_imports(cleaned_import_statements)
+def _get_import_statements(file_lines: list) -> list:
+    cleaned_lines = [_clean_line(line) for line in file_lines]
+    return _find_imports(cleaned_lines)
 
 
-def _read_import_statements_from_user_settings(user_settings_path: str) -> list:
+def _read_file_lines_from_user_settings(user_settings_path: str) -> list:
     file_in = open(user_settings_path, "r")
     return file_in.readlines()
 
@@ -61,22 +55,21 @@ def _maybe_init_user_imports_file(user_imports_path: Path) -> None:
 
 def _get_import_statements_from_user_settings(user_imports_path) -> list:
     _maybe_init_user_imports_file(user_imports_path)
-    import_statements = _read_import_statements_from_user_settings(user_imports_path)
-    return _clean_import_statements(import_statements)
+    file_lines = _read_file_lines_from_user_settings(user_imports_path)
+    return _get_import_statements(file_lines)
 
 
-def _assign_imports_to_global_space(import_statements: list, globals_) -> None:
+def _assign_imports_to_globals(import_statements: list, globals_) -> None:
     symbols = [import_statement.split()[-1] for import_statement in import_statements]
 
     for symbol, import_statement in zip(symbols, import_statements):
-        exec(f"{symbol} = LazyImport('{import_statement}')", globals_)
+        if symbol not in globals_.keys():
+            exec(f"{symbol} = LazyImport('{import_statement}')", globals_)
 
 
-# add user_imports_path as argument so that we can run tests on that function
+# user_imports_path exists as argument so that we can run tests on the function
 def _load_user_specific_imports(
     globals_: dict, user_imports_path=USER_IMPORTS_PATH
 ) -> None:
-    user_import_statements = _get_import_statements_from_user_settings(
-        user_imports_path
-    )
-    _assign_imports_to_global_space(user_import_statements, globals_)
+    import_statements = _get_import_statements_from_user_settings(user_imports_path)
+    _assign_imports_to_globals(import_statements, globals_)
