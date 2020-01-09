@@ -14,8 +14,7 @@ define([], function () {
 	}
 
 	function get_new_cell_content(imports_string, current_content) {
-        console.log("v3")
-		var separator = '# ^^^ pyforest imports ^^^';
+		var separator = `# ^^^ pyforest auto-imports - don't write above this line`;
 		var parts = current_content.split(separator);
 		if (parts.length > 1) {
 			parts = parts.splice(1);
