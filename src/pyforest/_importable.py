@@ -36,13 +36,14 @@ class LazyImport(object):
         self.__maybe_import_complementary_imports__()
         exec(self.__import_statement__, globals())
         # Attention: if the import fails, the next lines will not be reached
-
-        was_first_import = self.__was_imported__ == False
         self.__was_imported__ = True
-        if was_first_import:
-            # _update_import_cell can only be called after __was_imported__ is set to True
-            # otherwise, the current import is not included
-            _update_import_cell()
+
+        # Always update the import cell again
+        # this is not problem because the update is fast
+        # but it solves the problem of updating the first cell even if the first import was triggered via autocomplete
+        # when the import cell is only updated the first time, autocompletes wont result in updated cells
+        # Attention: the first cell is not updated after the autocomplete but after the cell (with the autocomplete) is executed
+        _update_import_cell()
 
     # among others, called during auto-completion of IPython/Jupyter
     def __dir__(self):
