@@ -1,25 +1,25 @@
 define([], function () {
 	function setup_lab(notebookTracker) {
-		window.update_imports_cell = function (importStr) {
-			var cv = notebookTracker.currentWidget.model.cells.get(0).value;
-			cv.text = updateImports(importStr, cv.text);
+		window._pyforest_update_imports_cell = function (imports_string) {
+			var cell = notebookTracker.currentWidget.model.cells.get(0).value;
+			cell.text = get_new_cell_content(imports_string, cell.text);
 		};
 	}
 
 	function setup_notebook(Jupyter) {
-		window.update_imports_cell = function (importStr) {
-			var doc = Jupyter.notebook.get_cell(0).code_mirror.getDoc();
-			doc.setValue(updateImports(importStr, doc.getValue()));
+		window._pyforest_update_imports_cell = function (imports_string) {
+			var cell_doc = Jupyter.notebook.get_cell(0).code_mirror.getDoc();
+			cell_doc.setValue(get_new_cell_content(imports_string, cell_doc.getValue()));
 		};
 	}
 
-	function updateImports(importStr, currentContent) {
-		var sep = '# ^^^ pyforest imports ^^^';
-		var parts = currentContent.split(sep);
+	function get_new_cell_content(imports_string, current_content) {
+		var separator = '# ^^^ pyforest imports ^^^';
+		var parts = current_content.split(separator);
 		if (parts.length > 1) {
 			parts = parts.splice(1);
 		}
-		return importStr + '\n' + sep + '\n' + parts.join('\n').trim('\n');
+		return imports_string + '\n' + separator + '\n' + parts.join('\n').trim('\n');
 	}
 
 	return {

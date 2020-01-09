@@ -89,7 +89,7 @@ def _update_import_cell():
     display(
         Javascript(
             """
-        if (window.update_imports_cell) {{ window.update_imports_cell({!r}); }}
+        if (window._pyforest_update_imports_cell) {{ window._pyforest_update_imports_cell({!r}); }}
     """.format(
                 "\n".join(statements)
             )
