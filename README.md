@@ -55,7 +55,7 @@ python -m pyforest install_extensions
 
 And you're ready to go.
 
-Please note, that this will also add pyforest to your IPython default startup settings.
+Please note, that this will also add pyforest to your IPython default startup settings. If you do not want this, you can disable the auto-import as described in the FAQs below.
 
 
 ## Frequently Asked Questions
