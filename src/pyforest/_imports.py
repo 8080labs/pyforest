@@ -130,8 +130,8 @@ del _load_user_specific_imports
 pandas_profiling = LazyImport("import pandas_profiling")
 pd.__on_import__(pandas_profiling)  # adds df.profile_report attribute to pd.DataFrame
 
-eda = LazyImport("import edaviz as eda")
-pd.__on_import__(eda)  # adds GUI to pd.DataFrame when IPython frontend can display it
+bam = LazyImport("import bamboolib as bam")
+pd.__on_import__(bam)  # adds GUI to pd.DataFrame when IPython frontend can display it
 
 
 ##################################################
