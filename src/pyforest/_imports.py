@@ -119,19 +119,19 @@ _load_user_specific_imports(globals())
 del _load_user_specific_imports
 
 
-#######################################
-### Complementary, optional imports ###
-#######################################
-# Why is this needed? Some libraries patch existing libraries
-# Please note: these imports are only executed if you already have the library installed
-# If you want to deactivate specific complementary imports, do the following:
-# - uncomment the lines which contain `.__on_import__` and the library you want to deactivate
+# #######################################
+# ### Complementary, optional imports ###
+# #######################################
+# # Why is this needed? Some libraries patch existing libraries
+# # Please note: these imports are only executed if you already have the library installed
+# # If you want to deactivate specific complementary imports, do the following:
+# # - uncomment the lines which contain `.__on_import__` and the library you want to deactivate
 
-pandas_profiling = LazyImport("import pandas_profiling")
-pd.__on_import__(pandas_profiling)  # adds df.profile_report attribute to pd.DataFrame
+# pandas_profiling = LazyImport("import pandas_profiling")
+# pd.__on_import__(pandas_profiling)  # adds df.profile_report attribute to pd.DataFrame
 
-bam = LazyImport("import bamboolib as bam")
-pd.__on_import__(bam)  # adds GUI to pd.DataFrame when IPython frontend can display it
+# bam = LazyImport("import bamboolib as bam")
+# pd.__on_import__(bam)  # adds GUI to pd.DataFrame when IPython frontend can display it
 
 
 ##################################################
