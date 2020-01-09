@@ -1,4 +1,4 @@
-const common = require('./common.js');
+const utils = require('./utils.js');
 const notebook = require('@jupyterlab/notebook');
 
 module.exports = [{
@@ -6,6 +6,6 @@ module.exports = [{
 	autoStart: true,
 	requires: [notebook.INotebookTracker],
 	activate: function (app, notebookTracker) {
-		common.setup_lab(notebookTracker);
+		utils.setup_lab(notebookTracker);
 	}
 }];
