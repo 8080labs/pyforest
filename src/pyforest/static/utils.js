@@ -18,7 +18,9 @@ define([], function () {
         var parts = current_content.split(separator);
         var user_content = ""
 		if (parts.length > 1) {
-			user_content = parts.slice(1)
+            // user content is everything after the first separator
+            // if the user adds another separator, pyforest only updates the content above the first separator
+            user_content = parts.slice(1)
 		} else {
             user_content = parts
         }
