@@ -1,0 +1,19 @@
+{
+	"private": true,
+	"name": "pyforest",
+	"version": "0.0.1",
+	"description": "Automatically adds pyforest lazy imports to first cell of Jupyter Notebook or Jupyter Lab because explicit is better than implicit",
+	"author": "Florian Wetschoreck",
+	"main": "static/labextension.js",
+	"keywords": [
+		"jupyter",
+		"jupyterlab",
+		"jupyterlab-extension"
+	],
+	"jupyterlab": {
+		"extension": true
+	},
+	"scripts": {},
+	"dependencies": {},
+	"devDependencies": {}
+}
