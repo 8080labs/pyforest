@@ -36,8 +36,13 @@ class LazyImport(object):
         self.__maybe_import_complementary_imports__()
         exec(self.__import_statement__, globals())
         # Attention: if the import fails, the next lines will not be reached
+
+        was_first_import = self.__was_imported__ == False
         self.__was_imported__ = True
-        _update_import_cell()
+        if was_first_import:
+            # _update_import_cell can only be called after __was_imported__ is set to True
+            # otherwise, the current import is not included
+            _update_import_cell()
 
     # among others, called during auto-completion of IPython/Jupyter
     def __dir__(self):
@@ -76,18 +81,11 @@ def _update_import_cell():
     except ImportError:
         return
 
-    import inspect
+    # import here and not at top of file in order to not interfere with importables
+    from ._imports import active_imports
 
-    statements = []
-    for frame in inspect.stack()[2:]:
-        lazy_imports = {
-            s for s in frame[0].f_globals.values() if isinstance(s, LazyImport)
-        }
-        if lazy_imports:
-            statements = [
-                s.__import_statement__ for s in lazy_imports if s.__was_imported__
-            ]
-            break
+    statements = active_imports()
+
     display(
         Javascript(
             """
@@ -105,4 +103,7 @@ def _get_import_statements(symbol_dict, was_imported=True):
         if isinstance(symbol, LazyImport) and (symbol.__was_imported__ == was_imported):
             # print(symbol.__import_statement__)
             statements.append(symbol.__import_statement__)
+
+    # remove potential duplicates, e.g. when user_symbols are passed
+    statements = list(set(statements))
     return statements
