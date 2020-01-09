@@ -49,7 +49,7 @@ Which libraries are available?
 From the terminal (or Anaconda prompt in Windows), enter:
 
 ```python
-pip install pyforest
+pip install --upgrade pyforest
 python -m pyforest install_extensions
 ```
 
