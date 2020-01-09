@@ -1,4 +1,4 @@
-from .utils import install_nbextension, install_labextension
+from .utils import install_extensions
 
 
 USAGE = """Usage: python -m pyforest install_extensions
@@ -12,5 +12,4 @@ if __name__ == "__main__":
         print(USAGE)
         sys.exit(-1)
 
-    install_nbextension()
-    install_labextension()
+    install_extensions()
