@@ -15,11 +15,14 @@ define([], function () {
 
 	function get_new_cell_content(imports_string, current_content) {
 		var separator = `# ^^^ pyforest auto-imports - don't write above this line`;
-		var parts = current_content.split(separator);
+        var parts = current_content.split(separator);
+        var user_content = ""
 		if (parts.length > 1) {
-			parts = parts.splice(1);
-		}
-		return imports_string + '\n' + separator + '\n' + parts.join('\n').trim('\n');
+			user_content = parts.slice(1)
+		} else {
+            user_content = parts
+        }
+		return imports_string + '\n' + separator + '\n' + user_content.join('\n').trim('\n');
 	}
 
 	return {
