@@ -37,6 +37,7 @@ class LazyImport(object):
         exec(self.__import_statement__, globals())
         # Attention: if the import fails, the next lines will not be reached
         self.__was_imported__ = True
+        self.__maybe_add_docstring_and_signature__()
 
         # Always update the import cell again
         # this is not problem because the update is fast
@@ -44,6 +45,20 @@ class LazyImport(object):
         # when the import cell is only updated the first time, autocompletes wont result in updated cells
         # Attention: the first cell is not updated after the autocomplete but after the cell (with the autocomplete) is executed
         _update_import_cell()
+
+    def __maybe_add_docstring_and_signature__(self):
+        # adds docstrings for imported objects
+        # UnitRegistry = LazyImport("from pint import UnitRegistry")
+        # UnitRegistry?
+
+        try:
+            self.__doc__ = eval(f"{self.__imported_name__}.__doc__")
+
+            from inspect import signature
+
+            self.__signature__ = eval(f"signature({self.__imported_name__})")
+        except:
+            pass
 
     # among others, called during auto-completion of IPython/Jupyter
     def __dir__(self):
