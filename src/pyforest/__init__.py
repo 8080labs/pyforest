@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 from ._imports import *
-from .utils import get_user_symbols, install_nbextension, install_labextension
+from .utils import (
+    get_user_symbols,
+    install_extensions,
+    install_nbextension,
+    install_labextension,
+)
 
 user_symbols = get_user_symbols()
 pyforest_imports = globals().copy().keys()
