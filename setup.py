@@ -8,6 +8,7 @@ import sys
 from pkg_resources import VersionConflict, require
 from setuptools import setup
 from src.pyforest.auto_import import setup as setup_auto_import
+from src.pyforest.utils import install_extensions
 
 try:
     require("setuptools>=38.3")
@@ -19,3 +20,4 @@ except VersionConflict:
 if __name__ == "__main__":
     setup()
     setup_auto_import()
+    install_extensions()
