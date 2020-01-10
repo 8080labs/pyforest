@@ -18,26 +18,25 @@ pyforest lazy-imports all popular Python Data Science libraries so that they are
 
 
 ## Using pyforest
-pyforest lazy-imports all popular Python Data Science libraries with a single line of code:
+
+After you [installed](#installation) pyforest and its Jupyter extension, you can __use your favorite Python Data Science commands like you normally would - just without writing imports__.
+
+For example, if you want to read a CSV with pandas:
 
 ```python
-import pyforest
+df = pd.read_csv("titanic.csv)
 ```
 
-And if you use Jupyter or IPython, you can even skip this line because pyforest adds itself to the autostart.
-
-After you use an import, pyforest will automatically add the import statements to the first cell.
-
-You can also manually get all import statements via:
-
+pyforest will automatically import pandas for you and add the import statement to the first cell:
 ```python
-pyforest.active_imports()
+import pandas as pd
 ```
 
-Which libraries are available?
-- We aim to add all popular Python Data Science libraries which should account for >99% of your daily imports. For example, `pandas` as `pd`, `numpy` as `np`, `seaborn` as `sns`, `matplotlib.pyplot` as `plt`, or `OneHotEncoder` from `sklearn` and many more. In addition, there are also helper modules like `os`, `re`, `tqdm`, or `Path` from `pathlib`.
-- You can see an overview of all available lazy imports if you type `pyforest.lazy_imports()` in Python.
-- If you are missing an import, you can either add the import to your user specific pyforest imports as described in the [FAQs](#frequently-asked-questions) or you can open a pull request for the official [pyforest imports](src/pyforest/_imports.py)
+
+__Which libraries are available?__
+- We aim to add all popular Python Data Science libraries which should account for >99% of your daily imports. For example, we already added `pandas` as `pd`, `numpy` as `np`, `seaborn` as `sns`, `matplotlib.pyplot` as `plt`, or `OneHotEncoder` from `sklearn` and many more. In addition, there are also helper modules like `os`, `re`, `tqdm`, or `Path` from `pathlib`.
+- You can see an overview of all currently available imports [here](src/pyforest/_imports.py)
+- If you are missing an import, you can either __add the import to your user specific pyforest imports__ as described in the [FAQs](#frequently-asked-questions) or you can open a pull request for the official [pyforest imports](src/pyforest/_imports.py)
 
 > In order to gather all the most important names, we need your help. Please open a pull request and add the [imports](src/pyforest/_imports.py) that we are still missing.
 
@@ -55,7 +54,7 @@ python -m pyforest install_extensions
 
 And you're ready to go.
 
-Please note, that this will also add pyforest to your IPython default startup settings. If you do not want this, you can disable the auto-import as described in the FAQs below.
+Please note, that this will also add pyforest to your IPython default startup settings. If you do not want this, you can disable the auto_import as described in the FAQs below.
 
 
 ## Frequently Asked Questions
@@ -79,10 +78,13 @@ Please note, that this will also add pyforest to your IPython default startup se
     - It works :) As soon as you start the auto-completion, pyforest will import the module and return the available symbols to your auto-completer.
 
 - __"How to (temporarily) deactivate the auto_import in IPython and Jupyter?"__
-    - Go to the directory `~/.ipython/profile_default/startup` and adjust or delete the `pyforest_autoimport.py` file. You will find further instructions in the file.
+    - Go to the directory `~/.ipython/profile_default/startup` and adjust or delete the `pyforest_autoimport.py` file. You will find further instructions in the file. If you don't use the auto_import, you will need to import pyforest at the beginning of your notebook via `import pyforest`
 
 - __"How to (re)activate the pyforest auto_import?"__
     - Execute the following Python command in Jupyter, IPython or Python: `from pyforest.auto_import import setup; setup()`. Please note that the auto_import only works for Jupyter and IPython.
+
+- __"Can I use pyforest outside of the Jupyter Notebook or Lab?"__
+    - Technically, yes. However, this is not the intended use case. pyforest is aimed primarily for the use in a Jupyter Notebook or Lab. If you want to use pyforest in IPython or a Python script etc, please import it as follows `import pyforest`. Afterwards, you can get the currently active imports via `pyforest.active_imports()`
 
 - __"Why is the project called pyforest?"__
     - In which ecosystem do pandas live?
