@@ -47,7 +47,7 @@ __Which libraries are available?__
 
 From the terminal (or Anaconda prompt in Windows), enter:
 
-```python
+```bash
 pip install --upgrade pyforest
 python -m pyforest install_extensions
 ```
