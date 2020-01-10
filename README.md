@@ -54,13 +54,13 @@ python -m pyforest install_extensions
 
 And you're ready to go.
 
-Please note, that this will also add pyforest to your IPython default startup settings. If you do not want this, you can disable the auto_import as described in the FAQs below.
+Please note, that this will also add pyforest to your IPython default startup settings. If you do not want this, you can disable the auto_import as described in the [FAQs](#frequently-asked-questions) below.
 
 
 ## Frequently Asked Questions
 
 - __"How to add my own import statements without adding them to the package source code?"__
-    - pyforest creates a file `~/.pyforest/user_imports.py`, in which you can type any **explicit** import statements you want (e.g. `import pandas as pd`). **Please note:** implicit imports (e.g. `from pandas import *`) won't work.
+    - pyforest creates a file in your home directory at `~/.pyforest/user_imports.py` in which you can type any **explicit** import statements you want (e.g. `import pandas as pd`). **Please note:** implicit imports (e.g. `from pandas import *`) won't work.
 
 - __"Doesn't this slow down my Jupyter or Python startup process?"__
     - No, because the libraries will only be imported when you actually use them. Until you use them, the variables like `pd` are only pyforest placeholders.
