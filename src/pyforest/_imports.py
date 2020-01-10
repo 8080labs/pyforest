@@ -107,6 +107,11 @@ dt = LazyImport("import datetime as dt")
 tqdm = LazyImport("import tqdm")
 
 
+##################################################
+### dont make adjustments below this line ########
+##################################################
+
+
 #############################
 ### User-specific imports ###
 #############################
@@ -134,12 +139,12 @@ del _load_user_specific_imports
 # pd.__on_import__(bam)  # adds GUI to pd.DataFrame when IPython frontend can display it
 
 
-##################################################
-### dont make adjustments below this line ########
-##################################################
 def lazy_imports():
     return _get_import_statements(globals(), was_imported=False)
 
 
-def active_imports():
-    return _get_import_statements(globals(), was_imported=True)
+def active_imports(print_statements=True):
+    statements = _get_import_statements(globals(), was_imported=True)
+    if print_statements:
+        print("\n".join(statements))
+    return statements
