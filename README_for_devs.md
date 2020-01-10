@@ -13,3 +13,6 @@ import pyforest
 pyforest.install_nbextension()
 pyforest.install_labextension()  # takes 30-60s due to jupyter lab build
 ```
+
+## Syntax formatting
+We use `black` for formatting the Python code

@@ -60,7 +60,7 @@ Please note, that this will also add pyforest to your IPython default startup se
 ## Frequently Asked Questions
 
 - __"How to add my own import statements without adding them to the package source code?"__
-    - pyforest creates a file in your home directory at `~/.pyforest/user_imports.py` in which you can type any **explicit** import statements you want (e.g. `import pandas as pd`). **Please note:** implicit imports (e.g. `from pandas import *`) won't work.
+    - pyforest creates a file in your home directory at `~/.pyforest/user_imports.py` in which you can type any **explicit** import statements you want (e.g. `import pandas as pd`). Your own custom imports take precedence over any other pyforest imports. **Please note:** implicit imports (e.g. `from pandas import *`) won't work.
 
 - __"Doesn't this slow down my Jupyter or Python startup process?"__
     - No, because the libraries will only be imported when you actually use them. Until you use them, the variables like `pd` are only pyforest placeholders.
