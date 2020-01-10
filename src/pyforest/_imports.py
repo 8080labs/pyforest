@@ -1,14 +1,11 @@
 from ._importable import LazyImport, _get_import_statements
 from .user_specific_imports import _load_user_specific_imports
 
-# YOU CAN SAVE OWN IMPORTS IN ~/.pyforest/user_imports.py
-# TODO: in this file you can also add your most important modules and objects, but we
-# recommend storing them in ~/.pyforest/user_imports.py
 
-# If you are missing an import and think it is a common import, please contribute
+# If you are missing an import and you think it is a common import, please contribute
 # via creating a pull request.
 # If you contribute, we can quickly collect the 80% most frequent imports
-# Before you create a pull request, please read the following:
+# Before you create a pull request, PLEASE READ THE FOLLOWING:
 
 # 0) It is always best to first create a GitHub issue before creating a pull request.
 # This way you can be sure that your proposal is valid and will be integrated.
@@ -16,16 +13,19 @@ from .user_specific_imports import _load_user_specific_imports
 # 1) The imported name should be an unambiguous standard convention and highly specific.
 # Usually, you want to use the names that are proposed in the library's documentation.
 # However, there should be no or little confusion with other libraries
-# e.g. 'import dash_html_components as html' is a 'good' counter example
+# Good example:
+#    'import pandas as pd'
+# Bad example:
+#    'import dash_html_components as html'
 # because 'html' is not specific enough for the dash context.
 # Also, it is ambiguous with e.g. IPython.display.HTML.
 # A potential resolution might be 'import dash_html_components as dhc'
 
-# 2) General imports e.g. 'from sklearn.preprocessing import *' are not allowed/possible
+# 2) General, implicit imports e.g. 'from sklearn.preprocessing import *' are not possible
 # because we want to make sure that there is no accidental masking of imported names
 
-# 3) If you disagree with the conventions, you can always adjust your local pyforest or save
-# your imports separately in ~/.pyforest/user_imports.py
+# 3) If you disagree with the conventions or you are using rare packages, you can save
+# your user-specific imports in ~/.pyforest/user_imports.py
 
 
 ### Data Wrangling
