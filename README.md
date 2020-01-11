@@ -24,7 +24,7 @@ After you [installed](#installation) pyforest and its Jupyter extension, you can
 For example, if you want to read a CSV with pandas:
 
 ```python
-df = pd.read_csv("titanic.csv)
+df = pd.read_csv("titanic.csv")
 ```
 
 pyforest will automatically import pandas for you and add the import statement to the first cell:
