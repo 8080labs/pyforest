@@ -14,7 +14,7 @@ pyforest lazy-imports all popular Python Data Science libraries so that they are
 
 
 ## Demo in Jupyter Notebook
-![demo](examples/assets/pyforest_demo_in_jupyter.gif)
+![demo](examples/assets/pyforest_demo_in_jupyter_notebook.gif)
 
 
 ## Using pyforest
