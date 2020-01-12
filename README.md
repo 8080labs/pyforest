@@ -1,6 +1,6 @@
-# pyforest - lazy-import of all popular Python Data Science libraries. Stop writing the same imports over and over again.
+# Writing the same imports over and over again sucks. Let pyforest do the job for you.
 
-pyforest lazy-imports all popular Python Data Science libraries so that they are always there when you need them. pyforest even adds the import statement to your first Jupyter cell. If you don't use a library, it won't be imported.
+pyforest lazy-imports all popular Python Data Science libraries so that they are always there when you need them. Once you use a package, pyforest imports it and even adds the import statement to your first Jupyter cell. If you don't use a library, it won't be imported. 
 
 - [Demo in Jupyter Notebook](#demo-in-jupyter-notebook)
 - [Using pyforest](#using-pyforest)
@@ -87,7 +87,7 @@ Please note, that this will also add pyforest to your IPython default startup se
     - Technically, yes. However, this is not the intended use case. pyforest is aimed primarily for the use in a Jupyter Notebook or Lab. If you want to use pyforest in IPython or a Python script etc, please import it as follows `import pyforest`. Afterwards, you can get the currently active imports via `pyforest.active_imports()`
 
 - __"Why is the project called pyforest?"__
-    - In which ecosystem do pandas live?
+    - pyforest is created to be the home for all Data Science packages - including pandas. And in which ecosystems do pandas live? :)
 
 
 ## Contributing
