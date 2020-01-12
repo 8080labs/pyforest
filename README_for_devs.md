@@ -1,6 +1,8 @@
 
 ## How to install the local python version during development
-`pip3 install -e .`
+```bash
+pip install -e .  # alternatively, use pip3
+```
 
 ## How to install the extensions during development
 Same procedure as normal installation via the terminal:
