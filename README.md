@@ -1,4 +1,4 @@
-# Writing the same imports over and over again sucks. Let pyforest do the job for you.
+# Feel the bliss of automatic importing
 
 pyforest lazy-imports all popular Python Data Science libraries so that they are always there when you need them. Once you use a package, pyforest imports it and even adds the import statement to your first Jupyter cell. If you don't use a library, it won't be imported. 
 
