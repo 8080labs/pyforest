@@ -52,9 +52,9 @@ pip install --upgrade pyforest
 python -m pyforest install_extensions
 ```
 
-And you're ready to go.
+Please make sure to restart any running Jupyter server so that the javascript extension can be loaded properly.
 
-Please note, that this will also add pyforest to your IPython default startup settings. If you do not want this, you can disable the auto_import as described in the [FAQs](#frequently-asked-questions) below.
+Also, please note that this will add pyforest to your IPython default startup settings. If you do not want this, you can disable the auto_import as described in the [FAQs](#frequently-asked-questions) below.
 
 
 ## Frequently Asked Questions
