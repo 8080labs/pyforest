@@ -80,6 +80,10 @@ TfidfVectorizer = LazyImport(
     "from sklearn.feature_extraction.text import TfidfVectorizer"
 )
 
+# Gradient Boosting Decision Tree
+xgb = LazyImport("import xgboost as xgb")
+lgb = LazyImport("import lightgbm as lgb")
+
 # TODO: add all the other most important sklearn objects
 # TODO: add separate sections within machine learning viz. Classification, Regression, Error Functions, Clustering
 
