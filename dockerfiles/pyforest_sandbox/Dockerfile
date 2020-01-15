@@ -10,5 +10,5 @@ RUN conda install --quiet --yes \
     && \
     conda clean --all -f -y
 
-RUN pip install pyforest==1.0.1
+RUN pip install pyforest==1.0.2 pandas numpy seaborn
 RUN python -m pyforest install_extensions
