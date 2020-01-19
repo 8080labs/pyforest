@@ -1,14 +1,23 @@
 define([], function () {
+	window.findFirstCodeCell = function findFirstCodeCell() {
+		var cells = Jupyter.notebook.get_cells();
+		  for (var i = 0; i < cells.length; i++) { 
+			  if (cells[i]["cell_type"] == "code" ){
+				  return i;
+			  }
+		  }
+	};
+	
 	function setup_lab(notebookTracker) {
 		window._pyforest_update_imports_cell = function (imports_string) {
-			var cell = notebookTracker.currentWidget.model.cells.get(0).value;
+			var cell = notebookTracker.currentWidget.model.cells.get(findFirstCodeCell()).value;
 			cell.text = get_new_cell_content(imports_string, cell.text);
 		};
 	}
 
 	function setup_notebook(Jupyter) {
 		window._pyforest_update_imports_cell = function (imports_string) {
-			var cell_doc = Jupyter.notebook.get_cell(0).code_mirror.getDoc();
+			var cell_doc = Jupyter.notebook.get_cell(findFirstCodeCell()).code_mirror.getDoc();
 			cell_doc.setValue(get_new_cell_content(imports_string, cell_doc.getValue()));
 		};
 	}
