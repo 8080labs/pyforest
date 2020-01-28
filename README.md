@@ -76,13 +76,6 @@ pip install --upgrade pyforest
 python -m pyforest install_extensions
 ```
 
-Installing the Jupyter extensions is also possible from within Python:
-```python
-import pyforest
-pyforest.install_nbextension()
-pyforest.install_labextension()  # takes 30-60s due to jupyter lab build
-```
-
 Please make sure to restart any running Jupyter server so that the javascript extension can be loaded properly.
 
 Also, please note that this will add pyforest to your IPython default startup settings. If you do not want this, you can disable the auto_import as described in the [FAQs](#frequently-asked-questions) below.
