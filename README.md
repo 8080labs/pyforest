@@ -7,9 +7,7 @@ pyforest lazy-imports all popular Python Data Science libraries so that they are
 - [Installation](#installation)
 - [FAQs](#frequently-asked-questions)
 - [Contributing](#contributing)
-- [Using pyforest as Package Developer](#using-pyforest-as-package-developer)
 - [About](#about)
-- [Join our community and grow further](#join-our-community-and-grow-further)
 
 
 
