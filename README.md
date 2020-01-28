@@ -1,8 +1,14 @@
-# pyforest - feel the bliss of automatic importing
+# pyforest - feel the bliss of automated imports
 
-pyforest lazy-imports all popular Python Data Science libraries so that they are always there when you need them. Once you use a package, pyforest imports it and even adds the import statement to your first Jupyter cell. If you don't use a library, it won't be imported. 
+Writing the same imports over and over again is below your capacity. Let pyforest do the job for you.
+
+
+With pyforest you can use all your favorite Python libraries without importing them before.
+If you use a package that is not imported yet, pyforest imports the package for you and adds the code to the first Jupyter cell. If you don't use a library, it won't be imported.
+
 
 - [Demo in Jupyter Notebook](#demo-in-jupyter-notebook)
+- [Scenario](#scenario)
 - [Using pyforest](#using-pyforest)
 - [Installation](#installation)
 - [FAQs](#frequently-asked-questions)
@@ -13,6 +19,26 @@ pyforest lazy-imports all popular Python Data Science libraries so that they are
 
 ## Demo in Jupyter Notebook
 ![demo](examples/assets/pyforest_demo_in_jupyter_notebook.gif)
+
+
+## Scenario
+
+You are a Python Data Scientist. Every day you start multiple new Jupyter notebooks because you want to explore some data or validate a hypothesis.
+
+During your work, you use many different libraries like `pandas`, `matplotlib`, `seaborn`, `numpy` or `sklearn`. However, before you can start with the actual work, you always need to import your libraries.
+
+
+There are several __problems__ with this. Admittedly, they are small but they add up over time.
+- It is boring because the imports are mostly the same. This is below your capacity.
+- Missing imports disrupt the natural flow of your work.
+- Sometimes, you may even need to look up the exact import statements. For example, `import matplotlib.pyplot as plt` or `from sklearn.ensemble import GradientBoostingRegressor`
+
+__What if you could just focus on using the libraries?__
+
+pyforest offers the following __solution__:
+- You can use all your libraries like you usually do. If a library is not imported yet, pyforest will import it and add the import statement to the first Jupyter cell.
+- If a library is not used, it won't be imported.
+- Your notebooks stay reproducible and sharable without you wasting a thought on imports.
 
 
 ## Using pyforest
