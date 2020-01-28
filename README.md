@@ -23,7 +23,7 @@ If you use a package that is not imported yet, pyforest imports the package for 
 
 ## Scenario
 
-You are a Python Data Scientist. Every day you start multiple new Jupyter notebooks because you want to explore some data or validate a hypothesis.
+You are a Data Scientist who works with Python. Every day you start multiple new Jupyter notebooks because you want to explore some data or validate a hypothesis.
 
 During your work, you use many different libraries like `pandas`, `matplotlib`, `seaborn`, `numpy` or `sklearn`. However, before you can start with the actual work, you always need to import your libraries.
 
