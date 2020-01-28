@@ -101,32 +101,5 @@ Also, please note that this will add pyforest to your IPython default startup se
 In order to gather all the most important names, we need your help. Please open a pull request and add the imports that we are still missing to the [pyforest imports](src/pyforest/_imports.py). You can also find the guidelines in the [pyforest imports file](src/pyforest/_imports.py)
 
 
-## Using pyforest as Package Developer
-pyforest helps you to minimize the (initial) import time of your package which improves the user experience. If you want your package imports to become lazy, rewrite your imports as follows:
-
-Replace
-
-```python
-import pandas as pd
-```
-
-with
-
-```python
-from pyforest import LazyImport
-pd = LazyImport("import pandas as pd")
-```
-
-
 ## About
-pyforest is developed by [8080 Labs](https://8080labs.com). Our goal is to improve the productivity of Python Data Scientists. If you like the speedup to your workflow, you might also be interested in our other project [bamboolib](https://bamboolib.com)
-
-
-## Join our community and grow further
-If you
-- like our work or
-- want to become a faster Python Data Scientist or
-- want to discuss the future of the Python Data Science ecosystem or
-- are just interested in mingling with like-minded fellows
-
-then, you are invited to [join our slack](https://join.slack.com/t/fasterpyds/shared_invite/enQtNzYxMTMzMDQ4MDk3LTYyNGRiNTE0OGJkNDEzZGRjNjg2Y2I0YWRlNTlmOGUxMjY5MDY5Yjg1MjliM2QwNmNhZmI3N2MxMmY3MGNiODA).
+pyforest is developed by [8080 Labs](https://8080labs.com). Our goal is to make Python Data Scientists 10x faster. If you like the speedup to your workflow, you might also be interested in our other project [bamboolib](https://bamboolib.com)
