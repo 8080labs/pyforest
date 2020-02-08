@@ -1,5 +1,7 @@
 # pyforest - feel the bliss of automated imports
 
+### From the makers of [bamboolib](https://bamboolib.com)
+
 Writing the same imports over and over again is below your capacity. Let pyforest do the job for you.
 
 
