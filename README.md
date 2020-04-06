@@ -117,6 +117,8 @@ Also, please note that this will add pyforest to your IPython default startup se
 
 
 ## Contributing
+If you'd like to contribute, a great place to look is the [issues marked with help-wanted](https://github.com/8080labs/pyforest/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22).
+
 In order to gather all the most important names, we need your help. Please open a pull request and add the imports that we are still missing to the [pyforest imports](src/pyforest/_imports.py). You can also find the guidelines in the [pyforest imports file](src/pyforest/_imports.py)
 
 
