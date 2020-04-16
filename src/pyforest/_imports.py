@@ -38,6 +38,8 @@ SparkContext = LazyImport("from pyspark import SparkContext")
 
 load_workbook = LazyImport("from openpyxl import load_workbook")
 
+wr = LazyImport("import awswrangler as wr")
+
 ### Data Visualization and Plotting
 mpl = LazyImport("import matplotlib as mpl")
 plt = LazyImport("import matplotlib.pyplot as plt")
