@@ -35,7 +35,7 @@ def install_nbextension():
         )
         return
 
-    nbextensions.install_nbextension_python("pyforest")
+    nbextensions.install_nbextension_python("pyforest", user=True)
     nbextensions.enable_nbextension_python("pyforest")
     print("")
     print("Finished installing the pyforest Jupyter Notebook nbextension")
