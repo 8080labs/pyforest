@@ -82,6 +82,8 @@ TfidfVectorizer = LazyImport(
     "from sklearn.feature_extraction.text import TfidfVectorizer"
 )
 
+sg = LazyImport("from scipy import signal as sg")
+
 # Gradient Boosting Decision Tree
 xgb = LazyImport("import xgboost as xgb")
 lgb = LazyImport("import lightgbm as lgb")
