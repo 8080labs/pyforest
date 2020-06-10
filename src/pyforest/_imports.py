@@ -63,6 +63,13 @@ statistics = LazyImport("import statistics")
 
 ### Machine Learning
 sklearn = LazyImport("import sklearn")
+
+LinearRegression = LazyImport("from sklearn.linear_model import LinearRegression")
+LogisticRegression = LazyImport("from sklearn.linear_model import LogisticRegression")
+StandardScaler = LazyImport("from sklearn.preprocessing import StandardScaler")
+MinMaxScaler = LazyImport("from sklearn.preprocessing import MinMaxScaler")
+
+
 OneHotEncoder = LazyImport("from sklearn.preprocessing import OneHotEncoder")
 TSNE = LazyImport("from sklearn.manifold import TSNE")
 train_test_split = LazyImport("from sklearn.model_selection import train_test_split")
@@ -80,6 +87,10 @@ RandomForestRegressor = LazyImport("from sklearn.ensemble import RandomForestReg
 
 TfidfVectorizer = LazyImport(
     "from sklearn.feature_extraction.text import TfidfVectorizer"
+)
+
+CountVectorizer = LazyImport(
+    "from sklearn.feature_extraction.text import CountVectorizer"
 )
 
 sg = LazyImport("from scipy import signal as sg")
