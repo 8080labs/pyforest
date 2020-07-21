@@ -38,6 +38,8 @@ SparkContext = LazyImport("from pyspark import SparkContext")
 
 load_workbook = LazyImport("from openpyxl import load_workbook")
 
+open_workbook = LazyImport("from xlrd import open_workbook")
+
 wr = LazyImport("import awswrangler as wr")
 
 ### Data Visualization and Plotting
