@@ -60,6 +60,13 @@ alt = LazyImport("import altair as alt")
 
 pydot = LazyImport("import pydot")
 
+### Image Processing
+cv2 = LazyImport("import cv2")
+
+Image = LazyImport("from PIL import Image")
+
+imutils = LazyImport("import imutils")
+
 # statistics
 statistics = LazyImport("import statistics")
 
@@ -70,10 +77,14 @@ LinearRegression = LazyImport("from sklearn.linear_model import LinearRegression
 LogisticRegression = LazyImport("from sklearn.linear_model import LogisticRegression")
 StandardScaler = LazyImport("from sklearn.preprocessing import StandardScaler")
 MinMaxScaler = LazyImport("from sklearn.preprocessing import MinMaxScaler")
+RobustScaler = LazyImport("from sklearn.preprocessing import RobustScaler")
 
+# Clustering
+KMeans = LazyImport("from sklearn.cluster import KMeans")
 
 OneHotEncoder = LazyImport("from sklearn.preprocessing import OneHotEncoder")
 TSNE = LazyImport("from sklearn.manifold import TSNE")
+PCA = LazyImport("from sklearn.decomposition import PCA")
 train_test_split = LazyImport("from sklearn.model_selection import train_test_split")
 svm = LazyImport("from sklearn import svm")
 GradientBoostingClassifier = LazyImport(
@@ -100,6 +111,7 @@ sg = LazyImport("from scipy import signal as sg")
 # Gradient Boosting Decision Tree
 xgb = LazyImport("import xgboost as xgb")
 lgb = LazyImport("import lightgbm as lgb")
+catboost = LazyImport("import catboost")
 
 # TODO: add all the other most important sklearn objects
 # TODO: add separate sections within machine learning viz. Classification, Regression, Error Functions, Clustering
