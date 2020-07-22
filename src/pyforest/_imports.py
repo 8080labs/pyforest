@@ -60,8 +60,15 @@ alt = LazyImport("import altair as alt")
 
 pydot = LazyImport("import pydot")
 
+### Image processing
+
+cv2 = LazyImport("import cv2")
+Image = LazyImport("from PIL import Image")
+imutils = LazyImport("import imutils")
+
 # statistics
 statistics = LazyImport("import statistics")
+stats = LazyImport("from scipy import stats")
 
 ### Machine Learning
 sklearn = LazyImport("import sklearn")
@@ -70,10 +77,12 @@ LinearRegression = LazyImport("from sklearn.linear_model import LinearRegression
 LogisticRegression = LazyImport("from sklearn.linear_model import LogisticRegression")
 StandardScaler = LazyImport("from sklearn.preprocessing import StandardScaler")
 MinMaxScaler = LazyImport("from sklearn.preprocessing import MinMaxScaler")
+RobustScaler = LazyImport("from sklearn.preprocessing import RobustScaler")
 
 
 OneHotEncoder = LazyImport("from sklearn.preprocessing import OneHotEncoder")
 TSNE = LazyImport("from sklearn.manifold import TSNE")
+PCA = LazyImport("from sklearn.decomposition import PCA")
 train_test_split = LazyImport("from sklearn.model_selection import train_test_split")
 svm = LazyImport("from sklearn import svm")
 GradientBoostingClassifier = LazyImport(
@@ -95,7 +104,12 @@ CountVectorizer = LazyImport(
     "from sklearn.feature_extraction.text import CountVectorizer"
 )
 
+metrics = LazyImport("from sklearn import metrics")
+
 sg = LazyImport("from scipy import signal as sg")
+
+# Clustering
+KMeans = LazyImport ("from sklearn.cluster import KMeans")
 
 # Gradient Boosting Decision Tree
 xgb = LazyImport("import xgboost as xgb")
@@ -113,6 +127,7 @@ nltk = LazyImport("import nltk")
 gensim = LazyImport("import gensim")
 spacy = LazyImport("import spacy")
 re = LazyImport("import re")
+textblob = LazyImport("import textblob")
 
 ### Helper
 sys = LazyImport("import sys")
