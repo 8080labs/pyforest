@@ -69,7 +69,7 @@ imutils = LazyImport("import imutils")
 # statistics
 statistics = LazyImport("import statistics")
 stats = LazyImport("from scipy import stats")
-sm = LazyImport("import statsmodel.api as sm")
+sm = LazyImport("import statsmodels.api as sm")
 
 ### Time-Series Forecast
 fbprophet = LazyImport("import fbprophet")
