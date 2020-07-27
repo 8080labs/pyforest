@@ -73,6 +73,7 @@ sm = LazyImport("import statsmodels.api as sm")
 
 ### Time-Series Forecast
 fbprophet = LazyImport("import fbprophet")
+Prophet = LazyImport("from fbprophet import Prophet")
 
 ### Machine Learning
 sklearn = LazyImport("import sklearn")
