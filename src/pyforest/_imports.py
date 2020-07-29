@@ -69,21 +69,41 @@ imutils = LazyImport("import imutils")
 # statistics
 statistics = LazyImport("import statistics")
 stats = LazyImport("from scipy import stats")
+sm = LazyImport("import statsmodels.api as sm")
+
+### Time-Series Forecast
+fbprophet = LazyImport("import fbprophet")
+Prophet = LazyImport("from fbprophet import Prophet")
 
 ### Machine Learning
 sklearn = LazyImport("import sklearn")
 
 LinearRegression = LazyImport("from sklearn.linear_model import LinearRegression")
 LogisticRegression = LazyImport("from sklearn.linear_model import LogisticRegression")
+Lasso = LazyImport("from sklearn.linear_model import Lasso")
+LassoCV = LazyImport("from sklearn.linear_model import LassoCV")
+Ridge = LazyImport("from sklearn.linear_model import Ridge")
+RidgeCV = LazyImport("from sklearn.linear_model import RidgeCV")
+ElasticNet = LazyImport("from sklearn.linear_model import ElasticNet")
+ElasticNetCV = LazyImport("from sklearn.linear_model import ElasticNetCV")
+PolynomialFeatures = LazyImport("from sklearn.preprocessing import PolynomialFeatures")
 StandardScaler = LazyImport("from sklearn.preprocessing import StandardScaler")
 MinMaxScaler = LazyImport("from sklearn.preprocessing import MinMaxScaler")
 RobustScaler = LazyImport("from sklearn.preprocessing import RobustScaler")
 
 
 OneHotEncoder = LazyImport("from sklearn.preprocessing import OneHotEncoder")
+LabelEncoder = LazyImport("from sklearn.preprocessing import LabelEncoder")
 TSNE = LazyImport("from sklearn.manifold import TSNE")
 PCA = LazyImport("from sklearn.decomposition import PCA")
+SimpleImputer = LazyImport("from sklearn.impute import SimpleImputer")
 train_test_split = LazyImport("from sklearn.model_selection import train_test_split")
+cross_val_score = LazyImport("from sklearn.model_selection import cross_val_score")
+GridSearchCV = LazyImport("from sklearn.model_selection import GridSearchCV")
+RandomizedSearchCV = LazyImport("from sklearn.model_selection import RandomizedSearchCV")
+KFold = LazyImport("from sklearn.model_selection import KFold"
+StratifiedKFold = LazyImport("from sklearn.model_selection import StratifiedKFold")
+
 svm = LazyImport("from sklearn import svm")
 GradientBoostingClassifier = LazyImport(
     "from sklearn.ensemble import GradientBoostingClassifier"
@@ -121,6 +141,8 @@ lgb = LazyImport("import lightgbm as lgb")
 # Deep Learning
 tf = LazyImport("import tensorflow as tf")
 keras = LazyImport("import keras")
+torch = LazyImport("import torch")
+fastai = LazyImport("import fastai")
 
 # NLP
 nltk = LazyImport("import nltk")
