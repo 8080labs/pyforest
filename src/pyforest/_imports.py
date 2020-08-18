@@ -63,6 +63,7 @@ pydot = LazyImport("import pydot")
 ### Image processing
 
 cv2 = LazyImport("import cv2")
+skimage = LazyImport("import skimage")
 Image = LazyImport("from PIL import Image")
 imutils = LazyImport("import imutils")
 
@@ -71,7 +72,7 @@ statistics = LazyImport("import statistics")
 stats = LazyImport("from scipy import stats")
 sm = LazyImport("import statsmodels.api as sm")
 
-### Time-Series Forecast
+### Time-Series Forecasting
 fbprophet = LazyImport("import fbprophet")
 Prophet = LazyImport("from fbprophet import Prophet")
 ARIMA = LazyImport("from statsmodels.tsa.arima_model import ARIMA")
