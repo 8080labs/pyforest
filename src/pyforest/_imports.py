@@ -63,7 +63,7 @@ pydot = LazyImport("import pydot")
 ### Image processing
 
 cv2 = LazyImport("import cv2")
-skimage = LazyImport("import skimage)
+skimage = LazyImport("import skimage")
 Image = LazyImport("from PIL import Image")
 imutils = LazyImport("import imutils")
 
