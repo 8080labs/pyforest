@@ -1,7 +1,19 @@
 define([], function () {
-	function setup_lab(notebookTracker) {
+	function first_code_cell_in_lab(notebookPanel) {
+		var cells = notebookPanel.content.widgets
+		for (let index in cells) {
+			if (cells[index].model.type == "code") {
+				return index;
+			}
+      	}
+		// This should never happen as a user wrote code when this function is called
+		return 0;
+	}
+
+	function setup_lab(notebookPanel) {
 		window._pyforest_update_imports_cell = function (imports_string) {
-			var cell = notebookTracker.currentWidget.model.cells.get(0).value;
+			var first_code_cell_index = first_code_cell_in_lab(notebookPanel)
+			var cell = notebookPanel.model.cells.get(first_code_cell_index).value;
 			cell.text = get_new_cell_content(imports_string, cell.text);
 		};
 	}

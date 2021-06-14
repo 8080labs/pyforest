@@ -6,6 +6,10 @@ module.exports = [{
 	autoStart: true,
 	requires: [notebook.INotebookTracker],
 	activate: function (app, notebookTracker) {
-		utils.setup_lab(notebookTracker);
+		// Need to create NotebookPanel and connect it with NotebookTracker first
+		notebookTracker.widgetAdded.connect(async (tracker, notebookPanel) => {
+			await notebookPanel.revealed;
+			utils.setup_lab(notebookPanel);
+		});
 	}
 }];
