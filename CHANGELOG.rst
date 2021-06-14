@@ -2,6 +2,11 @@
 Changelog
 =========
 
+Version 1.1.0
+=============
+
+- import statements are now automatically added to the first *CODE* cell when a package is used in the notebook
+
 Version 1.0.0
 =============
 
