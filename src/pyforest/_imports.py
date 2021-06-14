@@ -103,7 +103,7 @@ train_test_split = LazyImport("from sklearn.model_selection import train_test_sp
 cross_val_score = LazyImport("from sklearn.model_selection import cross_val_score")
 GridSearchCV = LazyImport("from sklearn.model_selection import GridSearchCV")
 RandomizedSearchCV = LazyImport("from sklearn.model_selection import RandomizedSearchCV")
-KFold = LazyImport("from sklearn.model_selection import KFold"
+KFold = LazyImport("from sklearn.model_selection import KFold")
 StratifiedKFold = LazyImport("from sklearn.model_selection import StratifiedKFold")
 
 svm = LazyImport("from sklearn import svm")
