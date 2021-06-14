@@ -6,8 +6,9 @@ define([], function () {
 				return index;
 			}
       	}
-		// This should never happen as a user wrote code when this function is called
-		return 0;
+		// This should never happen because this function is called when the user
+		// executes a code cell.
+		throw new Error("No single code cell found");
 	}
 
 	function setup_lab(notebookPanel) {
@@ -18,9 +19,22 @@ define([], function () {
 		};
 	}
 
+	function first_code_cell_in_notebook(Jupyter) {
+		var cells = Jupyter.notebook.get_cells();
+		for (let index in cells) {
+			if (cells[index]["cell_type"] == "code") {
+				return index;
+			}
+		}
+		// This should never happen because this function is called when the user
+		// executes a code cell.
+		throw new Error("No single code cell found");
+	}
+
 	function setup_notebook(Jupyter) {
 		window._pyforest_update_imports_cell = function (imports_string) {
-			var cell_doc = Jupyter.notebook.get_cell(0).code_mirror.getDoc();
+			var first_code_cell_index = first_code_cell_in_notebook(Jupyter)
+			var cell_doc = Jupyter.notebook.get_cell(first_code_cell_index).code_mirror.getDoc();
 			cell_doc.setValue(get_new_cell_content(imports_string, cell_doc.getValue()));
 		};
 	}
@@ -30,8 +44,8 @@ define([], function () {
         var parts = current_content.split(separator);
         var user_content = ""
 		if (parts.length > 1) {
-            // user content is everything after the first separator
-            // if the user adds another separator, pyforest only updates the content above the first separator
+            // User content is everything after the first separator.
+            // If the user adds another separator, pyforest only updates the content above the first separator.
             user_content = parts.slice(1)
 		} else {
             user_content = parts
