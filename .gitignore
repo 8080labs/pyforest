@@ -57,3 +57,6 @@ MANIFEST
 .vscode/*
 examples/*.py
 anaconda_credentials.txt
+
+# User-specific folders
+devstuff
