@@ -153,6 +153,12 @@ spacy = LazyImport("import spacy")
 re = LazyImport("import re")
 textblob = LazyImport("import textblob")
 
+# Uncertainties & Units
+ufloat = LazyImport("from uncertainties import ufloat")
+umath = LazyImport("from uncertainties import umath")
+unumpy = LazyImport("from uncertainties import unumpy")
+UnitRegistry = LazyImport("from pint import UnitRegistry")
+
 ### Helper
 sys = LazyImport("import sys")
 os = LazyImport("import os")
