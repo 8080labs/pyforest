@@ -72,6 +72,11 @@ statistics = LazyImport("import statistics")
 stats = LazyImport("from scipy import stats")
 sm = LazyImport("import statsmodels.api as sm")
 
+### Normality Tests
+shapiro = LazyImport("from scipy.stats import shapiro")
+normaltest = LazyImport("from scipy.stats import normaltest")
+anderson = LazyImport("from scipy.stats import anderson")
+
 ### Time-Series Forecasting
 fbprophet = LazyImport("import fbprophet")
 Prophet = LazyImport("from fbprophet import Prophet")
