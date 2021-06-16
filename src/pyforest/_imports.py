@@ -153,6 +153,21 @@ spacy = LazyImport("import spacy")
 re = LazyImport("import re")
 textblob = LazyImport("import textblob")
 
+# Scikit-HEP tools
+bh = LazyImport("import boost_histogram as bh")
+uproot = LazyImport("import uproot")
+Minuit = LazyImport("from iminuit import Minuit")
+Particle = LazyImport("from particle import Particle")
+DecFileParser = LazyImport("from decaylanguage import DecFileParser")
+hu = LazyImport("from hepunits import units as hu")
+hc = LazyImport("from hepunits import constants as hc")
+
+# Related HEP tools
+zfit = LazyImport("import zfit")
+
+# Other HEP tools
+ROOT = LazyImport("import ROOT")
+
 ### Helper
 sys = LazyImport("import sys")
 os = LazyImport("import os")
