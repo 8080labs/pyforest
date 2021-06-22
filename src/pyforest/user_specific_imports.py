@@ -59,7 +59,7 @@ def _get_imports_from_user_settings(user_imports_path) -> list:
     return _get_imports(file_lines)
 
 
-def _assign_imports_to_globals(import_statements: list) -> None:
+def _assign_imports_to_globals(import_statements: list, globals_) -> None:
     symbols = []; new_import_statements = []
     
     for import_statement in import_statements:
@@ -78,7 +78,7 @@ def _assign_imports_to_globals(import_statements: list) -> None:
                     new_statement = splited_statement[:-1] + [multi_import_statement[i]]
                     process(" ".join(new_statement))
 
-    for symbol, import_statement in zip(symbols, import_statements):
+    for symbol, import_statement in zip(symbols, new_import_statements):
         exec(f"{symbol} = LazyImport('{import_statement}')", globals_)
 
 
