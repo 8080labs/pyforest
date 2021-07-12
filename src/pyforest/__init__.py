@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from ._imports import *
+from ._importable import disable_javascript_update
 from .utils import (
     get_user_symbols,
     install_extensions,
@@ -14,7 +15,6 @@ for import_symbol in pyforest_imports:
     # don't overwrite symbols of the user
     if import_symbol not in user_symbols.keys():
         user_symbols[import_symbol] = eval(import_symbol)
-
 
 #  set __version__ attribute
 from pkg_resources import get_distribution, DistributionNotFound
