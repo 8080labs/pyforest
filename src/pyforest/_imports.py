@@ -76,6 +76,7 @@ sm = LazyImport("import statsmodels.api as sm")
 fbprophet = LazyImport("import fbprophet")
 Prophet = LazyImport("from fbprophet import Prophet")
 ARIMA = LazyImport("from statsmodels.tsa.arima_model import ARIMA")
+timemachines = LazyImport("from timemachines.skaters.elo.eloensembles import elo_fastest_univariate_precision_ensemble as forever")
 
 ### Machine Learning
 sklearn = LazyImport("import sklearn")
