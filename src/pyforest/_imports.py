@@ -152,12 +152,17 @@ gensim = LazyImport("import gensim")
 spacy = LazyImport("import spacy")
 re = LazyImport("import re")
 textblob = LazyImport("import textblob")
+ftfy = LazyImport("import ftfy")
 
 ### Helper
 sys = LazyImport("import sys")
 os = LazyImport("import os")
 re = LazyImport("import re")
 glob = LazyImport("import glob")
+copy = LazyImport("import copy")
+random = LazyImport("import random")
+itertools = LazyImport("import itertools")
+
 Path = LazyImport("from pathlib import Path")
 
 pickle = LazyImport("import pickle")
