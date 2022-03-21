@@ -164,7 +164,7 @@ pickle = LazyImport("import pickle")
 
 dt = LazyImport("import datetime as dt")
 
-tqdm = LazyImport("import tqdm")
+tqdm = LazyImport("from tqdm.auto import tqdm")
 
 
 ##################################################
