@@ -25,7 +25,7 @@ def _write_into_startup_file():
 # 1) if you never want to auto-import pyforest again, you can delete this file
 
 try:
-    from pyforest import *  # uncomment this line if you temporarily dont want to auto-import pyforest
+    import pyforest  # uncomment this line if you temporarily dont want to auto-import pyforest
     pass
 except:
     pass

@@ -1,0 +1,2 @@
+include src/pyforest/static/*
+include src/pyforest/*.json
