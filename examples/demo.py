@@ -1,11 +1,8 @@
-# %%
-# from pyforest import *  # not needed because of auto_import
+import pyforest
 
-# %%
 df = pd.read_csv("titanic.csv")
 
-# %%
 sns.distplot(df.Age)
+plt.show()
 
-# %%
-active_imports()
+

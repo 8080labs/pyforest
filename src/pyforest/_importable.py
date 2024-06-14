@@ -35,8 +35,30 @@ class LazyImport(object):
     def __maybe_import__(self):
         self.__maybe_import_complementary_imports__()
         exec(self.__import_statement__, globals())
-        # Attention: if the import fails, the next line will not be reached
+        # Attention: if the import fails, the next lines will not be reached
         self.__was_imported__ = True
+        self.__maybe_add_docstring_and_signature__()
+
+        # Always update the import cell again
+        # this is not problem because the update is fast
+        # but it solves the problem of updating the first cell even if the first import was triggered via autocomplete
+        # when the import cell is only updated the first time, autocompletes wont result in updated cells
+        # Attention: the first cell is not updated after the autocomplete but after the cell (with the autocomplete) is executed
+        _update_import_cell()
+
+    def __maybe_add_docstring_and_signature__(self):
+        # adds docstrings for imported objects
+        # UnitRegistry = LazyImport("from pint import UnitRegistry")
+        # UnitRegistry?
+
+        try:
+            self.__doc__ = eval(f"{self.__imported_name__}.__doc__")
+
+            from inspect import signature
+
+            self.__signature__ = eval(f"signature({self.__imported_name__})")
+        except:
+            pass
 
     # among others, called during auto-completion of IPython/Jupyter
     def __dir__(self):
@@ -69,10 +91,43 @@ class LazyImport(object):
             return f"lazy pyforest.LazyImport for '{self.__import_statement__}'"
 
 
-def _import_statements(symbol_dict, was_imported=True):
+def disable_javascript_update():
+    """
+    For use in non-Jupyter environments, disable _update_import_cell
+    """
+    from pyforest import _importable
+    _importable._update_import_cell_disabled = _importable._update_import_cell
+    _importable._update_import_cell = lambda: None
+
+
+def _update_import_cell():
+    try:
+        from IPython.display import display, Javascript
+    except ImportError:
+        return
+
+    # import here and not at top of file in order to not interfere with importables
+    from ._imports import active_imports
+
+    statements = active_imports(print_statements=False)
+
+    display(
+        Javascript(
+            """
+        if (window._pyforest_update_imports_cell) {{ window._pyforest_update_imports_cell({!r}); }}
+    """.format(
+                "\n".join(statements)
+            )
+        )
+    )
+
+
+def _get_import_statements(symbol_dict, was_imported=True):
     statements = []
     for _, symbol in symbol_dict.items():
         if isinstance(symbol, LazyImport) and (symbol.__was_imported__ == was_imported):
-            print(symbol.__import_statement__)
             statements.append(symbol.__import_statement__)
+
+    # remove potential duplicates, e.g. when user_symbols are passed
+    statements = list(set(statements))
     return statements

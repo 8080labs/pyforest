@@ -1,5 +1,9 @@
 .DS_Store
 
+# as long as the pyforest extensions don't need to be build, we can ignore the JS build folders:
+src/pyforest/node_modules
+src/pyforest/yarn.lock
+
 # Temporary and binary files
 *~
 *.py[cod]
@@ -53,3 +57,6 @@ MANIFEST
 .vscode/*
 examples/*.py
 anaconda_credentials.txt
+
+# User-specific folders
+devstuff
