@@ -159,6 +159,7 @@ os = LazyImport("import os")
 re = LazyImport("import re")
 glob = LazyImport("import glob")
 Path = LazyImport("from pathlib import Path")
+random = LazyImport("import random")
 
 pickle = LazyImport("import pickle")
 
