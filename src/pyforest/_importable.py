@@ -91,6 +91,15 @@ class LazyImport(object):
             return f"lazy pyforest.LazyImport for '{self.__import_statement__}'"
 
 
+def disable_javascript_update():
+    """
+    For use in non-Jupyter environments, disable _update_import_cell
+    """
+    from pyforest import _importable
+    _importable._update_import_cell_disabled = _importable._update_import_cell
+    _importable._update_import_cell = lambda: None
+
+
 def _update_import_cell():
     try:
         from IPython.display import display, Javascript
