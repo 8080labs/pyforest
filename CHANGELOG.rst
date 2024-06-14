@@ -2,6 +2,11 @@
 Changelog
 =========
 
+Version 1.1.2
+=============
+
+- https://github.com/8080labs/pyforest/pull/56 Add "random" package to lazy imports
+
 Version 1.1.1
 =============
 
