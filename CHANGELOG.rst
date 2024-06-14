@@ -2,6 +2,11 @@
 Changelog
 =========
 
+Version 1.1.1
+=============
+
+- https://github.com/8080labs/pyforest/pull/49 disable non-jupyter console from being polluted with lazy import print statements.
+
 Version 1.1.0
 =============
 
