@@ -166,8 +166,8 @@ pickle = LazyImport("import pickle")
 dt = LazyImport("import datetime as dt")
 
 tqdm = LazyImport("import tqdm")
-
-
+soup = LazyImport("from bs4 import BeautifulSoup")
+requests = LazyImport("import requests")
 ##################################################
 ### dont make adjustments below this line ########
 ##################################################
